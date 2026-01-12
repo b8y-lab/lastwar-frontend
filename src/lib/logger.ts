@@ -3,8 +3,8 @@
 
 export default async function log(method: string, message: string)
 {
-    logToFile(method, message);
     // await logToDb(method, message);
+    logToFile(method, message);
 }
 
 export function logToFile(method: string, message: string)
