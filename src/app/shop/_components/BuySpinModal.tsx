@@ -8,7 +8,7 @@ export default function BuySpinModal()
     
     const addSpins = async () =>
     {
-        await fetch('/api/spins', {
+        await fetch('/api/spin', {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({spins: 15}),
             method: 'POST'

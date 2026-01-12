@@ -23,7 +23,7 @@ export async function POST(request: Request)
     try {
         const body = await request.json();
         const { spins } = body;
-        
+
         const resolvedCookies = await cookies();
         resolvedCookies.set("spins", spins.toString());
         
