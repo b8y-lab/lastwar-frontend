@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Dialog, DialogPanel, DialogTitle} from '@headlessui/react'
 import { XMarkIcon, BoltIcon } from '@heroicons/react/24/outline'
+import log from "@/lib/logger.ts";
 
 export default function BuySpinModal()
 {
@@ -8,13 +9,17 @@ export default function BuySpinModal()
     
     const addSpins = async () =>
     {
-        await fetch('/api/spin', {
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({spins: 15}),
-            method: 'POST'
-        });
-
-        window.location.reload();
+        try {
+            await fetch('/api/spin', {
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({spins: 15}),
+                method: 'POST'
+            });
+            window.location.reload();
+        }
+        catch(e) {
+            await log("addSpins:error", JSON.stringify(e));
+        }
     }
 
     return (
