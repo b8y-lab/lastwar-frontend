@@ -18,7 +18,7 @@ export default function BuySpinModal()
             window.location.reload();
         }
         catch(e) {
-            await log("addSpins:error", JSON.stringify(e));
+            console.error("addSpins:error", JSON.stringify(e));
         }
     }
 
