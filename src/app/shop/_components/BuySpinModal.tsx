@@ -11,7 +11,7 @@ export default function BuySpinModal()
         try {
             await fetch('/api/spin', {
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({spins: 15}),
+                body: JSON.stringify({ spins: 15 }),
                 method: 'POST'
             });
             window.location.reload();
