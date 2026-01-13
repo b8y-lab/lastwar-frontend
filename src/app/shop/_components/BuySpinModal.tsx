@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Dialog, DialogPanel, DialogTitle} from '@headlessui/react'
 import { XMarkIcon, BoltIcon } from '@heroicons/react/24/outline'
-import log from "@/lib/logger.ts";
 
 export default function BuySpinModal()
 {
