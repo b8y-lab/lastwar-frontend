@@ -53,3 +53,23 @@ body {
     transition: all 0.3s;
     font-family: monospace;
 }
+
+.spin-button {
+  background-image: url("/assets/slot/spinButton.png");
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.05s ease;
+}
+
+/* КНОПКА НАЖАТА */
+.spin-button:active {
+  background-image: url("/assets/slot/spinButtonPressed.png");
+  transform: scale(0.98);
+}
+
+/* КОГДА СПИН ИДЁТ */
+.spin-button:disabled {
+  background-image: url("/assets/slot/spinButton.png");
+  cursor: not-allowed;
+  opacity: 0.9;
+}

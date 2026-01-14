@@ -85,10 +85,10 @@ export default function SlotMachine()
             backgroundPosition: 'center',
         }}>
 
-            <div className="w-1/2 h-15 relative flex flex-wrap items-center justify-center border py-2 pl-5 mb-2">
+            {/* <div className="w-1/2 h-15 relative flex flex-wrap items-center justify-center border py-2 pl-5 mb-2">
                 <BoltIcon className="size-5 absolute left-1/7"/> 
                 { spins } / 50
-            </div>
+            </div> */}
             
             <div className="flex m-[260px] gap-[10px]">
                 <SlotReel symbol={reels[0]} spinning={rolling} />
@@ -99,11 +99,7 @@ export default function SlotMachine()
         </div>
 
         { spins > 0 ? (
-                <button onClick={spin} disabled={rolling} className="button w-[260px] h-[160px]" style={{
-                    backgroundImage: 'url("/assets/slot/spinButton.png")',
-                    backgroundSize: 'cover',     
-                    backgroundPosition: 'center',
-                }}>
+                <button onClick={spin} disabled={rolling} className="spin-button button w-[260px] h-[160px]">
                 </button>
             ) : (
                 <div className="flex flew-row justify-around items-center w-full h-15 mt-2">
