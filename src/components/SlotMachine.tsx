@@ -3,9 +3,9 @@
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { BoltIcon } from "@heroicons/react/24/outline";
 import { getGameArray, getReelsRandomArray, getRouteByResults } from "@/utils/slot/symbols.ts";
 import BuySpinModal from "@/app/shop/_components/BuySpinModal.tsx";
+import { BoltIcon } from "@heroicons/react/24/outline";
 
 const SlotReel = dynamic(() => import('@/components/SlotReel'), { ssr: false });
 
@@ -13,7 +13,7 @@ export default function SlotMachine()
 {
     const router = useRouter();
     const [spins, setSpins] = useState(1);
-    const [reels, setReels] = useState(['⭐︎︎', '⭐︎', '⭐︎']);
+    const [reels, setReels] = useState(['🪙', '🎁', '⚔️']);
     const [rolling, setRolling] = useState(false);
     
     useEffect(() => {
@@ -85,15 +85,15 @@ export default function SlotMachine()
             backgroundPosition: 'center',
         }}>
 
-            {/* <div className="w-1/2 h-15 relative flex flex-wrap items-center justify-center border py-2 pl-5 mb-2">
+            <div className="w-1/2 h-15 relative flex flex-wrap items-center justify-center border py-2 pl-5 mb-2">
                 <BoltIcon className="size-5 absolute left-1/7"/> 
                 { spins } / 50
-            </div> */}
+            </div>
             
             <div className="flex m-[260px] gap-[10px]">
-                <SlotReel symbol={reels[0]} />
-                <SlotReel symbol={reels[1]} />
-                <SlotReel symbol={reels[2]} />
+                <SlotReel symbol={reels[0]} spinning={rolling} />
+                <SlotReel symbol={reels[1]} spinning={rolling} />
+                <SlotReel symbol={reels[2]} spinning={rolling} />
             </div>
 
         </div>

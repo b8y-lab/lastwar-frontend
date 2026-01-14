@@ -3,7 +3,7 @@ export const gameWeights = {
     game: 45, // probability for mini-game slots
 };
 
-export const reelSymbols = ["🪙", "⚡️", "🎁", "💎", "⚔️", "🛡", "🔑", "🎫"];
+export const reelSymbols = ["🪙", "🎁", "⚔️"];
 
 export const gameSymbols = [
     { char: "no", weight: 50 },
