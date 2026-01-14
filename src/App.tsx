@@ -7,12 +7,14 @@ import FooterNav from "@/components/FooterNav.tsx";
 export default function App()
 {
     return (
-        <div id="app" className="flex flex-col justify-start items-center">
-            <UserHeader />
+        <div id="app" className="flex flex-col justify-start items-center" style={{
+            backgroundImage: 'url("/assets/slot/slot-bg.png")',
+            backgroundSize: 'cover',     
+            backgroundPosition: 'center',
+        }}>
             <QuestSideNav />
             <PromoSideNav />
             <SlotMachine />
-            <FooterNav />
         </div>
     );
 }
