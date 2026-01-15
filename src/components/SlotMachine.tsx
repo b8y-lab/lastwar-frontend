@@ -78,7 +78,7 @@ export default function SlotMachine()
 
     return (
 
-        <div className="flex flex-col items-center justify-center gap-[50px]">
+        <div className="flex flex-col items-center justify-center gap-[50px] mt-[35px] z-2">
             <div className="flex flex-col justify-start items-center w-[530px] h-[630px]" style={{
             backgroundImage: 'url("/assets/slot/slot-house.png")',
             backgroundSize: 'cover',     

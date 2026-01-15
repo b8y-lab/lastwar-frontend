@@ -88,7 +88,7 @@ export default function SlotReel({
   }, [symbol]);
 
   return (
-    <div className="relative overflow-hidden w-[90px] h-[200px]">
+    <div className="relative overflow-hidden w-[90px] h-[190px] mt-[10px]">
       <div ref={reelRef}>
         {REEL_STRIP.map((sym, i) => (
           <div

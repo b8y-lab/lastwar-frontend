@@ -3,6 +3,7 @@ import QuestSideNav from "@/components/QuestSideNav.tsx";
 import PromoSideNav from "@/components/PromoSideNav.tsx";
 import SlotMachine from "@/components/SlotMachine.tsx";
 import FooterNav from "@/components/FooterNav.tsx";
+import CloudsLayer from "./components/CloudsLayer";
 
 export default function App()
 {
@@ -12,6 +13,7 @@ export default function App()
             backgroundSize: 'cover',     
             backgroundPosition: 'center',
         }}>
+            <CloudsLayer />
             <QuestSideNav />
             <PromoSideNav />
             <SlotMachine />
