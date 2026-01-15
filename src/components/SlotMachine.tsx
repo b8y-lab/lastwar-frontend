@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { getGameArray, getReelsRandomArray, getRouteByResults } from "@/utils/slot/symbols.ts";
 import BuySpinModal from "@/app/shop/_components/BuySpinModal.tsx";
 import { BoltIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 
 const SlotReel = dynamic(() => import('@/components/SlotReel'), { ssr: false });
 
@@ -78,28 +79,45 @@ export default function SlotMachine()
 
     return (
 
-        <div className="flex flex-col items-center justify-center gap-[50px] mt-[35px] z-2">
+        <div className="relative flex flex-col items-center justify-center mt-[35px] z-2">
             <div className="flex flex-col justify-start items-center w-[530px] h-[630px]" style={{
             backgroundImage: 'url("/assets/slot/slot-house.png")',
             backgroundSize: 'cover',     
             backgroundPosition: 'center',
         }}>
-
-            {/* <div className="w-1/2 h-15 relative flex flex-wrap items-center justify-center border py-2 pl-5 mb-2">
-                <BoltIcon className="size-5 absolute left-1/7"/> 
-                { spins } / 50
-            </div> */}
             
             <div className="flex m-[260px] gap-[10px]">
                 <SlotReel symbol={reels[0]} spinning={rolling} />
                 <SlotReel symbol={reels[1]} spinning={rolling} />
                 <SlotReel symbol={reels[2]} spinning={rolling} />
             </div>
-
         </div>
 
+        <motion.div
+            style={{
+                width: 130,
+                height: 120,
+                backgroundImage: 'url("/assets/slot/generator.png")',
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                position: "absolute",
+                bottom: 179,
+                left: 0,
+            }}
+            animate={{
+                x: [0, -0.8, 0.6, -0.4, 0],
+                y: [0, 0.4, -0.3, 0.2, 0],
+                rotate: [0, -0.4, 0.3, -0.2, 0],
+            }}
+            transition={{
+                duration: 0.3,
+                repeat: Infinity,
+                ease: "linear",
+            }}
+        />
+
         { spins > 0 ? (
-                <button onClick={spin} disabled={rolling} className="spin-button button w-[260px] h-[160px]">
+                <button onClick={spin} disabled={rolling} className="spin-button button w-[260px] h-[160px] mt-[50px]">
                 </button>
             ) : (
                 <div className="flex flew-row justify-around items-center w-full h-15 mt-2">
