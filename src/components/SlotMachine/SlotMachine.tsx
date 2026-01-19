@@ -78,7 +78,7 @@ export default function SlotMachine()
 
     return (
 
-        <div className="relative flex flex-col items-center justify-center mt-[35px] z-2">
+        <div className="relative flex flex-col items-center justify-center z-2 relative">
             <div className="flex flex-col justify-start items-center w-[490px] h-[630px]" style={{
             backgroundImage: 'url("/assets/slot/slot-house.png")',
             backgroundSize: 'cover',     
@@ -92,10 +92,12 @@ export default function SlotMachine()
             </div>
         </div>
 
-        <Generator />
+        <div className="absolute bottom-[13px] left-0">
+            <Generator />
+        </div>
 
         { spins > 0 ? (
-                <button onClick={spin} disabled={rolling} className="spin-button button w-[260px] h-[160px] mt-[50px]">
+                <button onClick={spin} disabled={rolling} className="spin-button button w-[225px] h-[140px] absolute -bottom-20">
                 </button>
             ) : (
                 <div className="flex flew-row justify-around items-center w-full h-15 mt-2">

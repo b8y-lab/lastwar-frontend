@@ -6,9 +6,6 @@ const GENERATOR_STYLE: MotionStyle = {
   backgroundImage: 'url("/assets/slot/generator.png")',
   backgroundSize: "cover",
   backgroundPosition: "center",
-  position: "absolute",
-  bottom: 179,
-  left: 0,
 };
 
 const GENERATOR_TRANSITION: Transition = {

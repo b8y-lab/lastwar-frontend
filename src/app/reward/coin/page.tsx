@@ -23,7 +23,7 @@ export default function Page()
 
             </div>
 
-            <Link href="/" className="button w-3/4 py-5 flex justify-around items-center">Get Reward</Link>
+            <Link href="/" className="button w-3/4 py-5 flex justify-around items-center">Забрать награду</Link>
 
         </div>
     )

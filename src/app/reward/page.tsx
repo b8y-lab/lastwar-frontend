@@ -1,5 +1,6 @@
 import { AcademicCapIcon, BoltIcon, BuildingLibraryIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Page()
 {
@@ -9,8 +10,7 @@ export default function Page()
 
             <div className="w-full flex flex-row items-center justify-center pt-10 pb-5">
                 <button className="button w-60 h-60 rounded-full inline-block">
-                    <b className="text-xl">Huge Win!</b><br/><br/>
-                    Reward<br/>Icon
+                    <Image src="/assets/slot/reward/chest.png" width={524} height={568} alt=""></Image>
                 </button>
             </div>
 
