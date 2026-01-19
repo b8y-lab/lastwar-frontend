@@ -14,7 +14,8 @@ export const Reward = ({ rewardType, onClose }: RewardModalProps) => {
         onClose();
       }}
     >
-      <div className="w-[500px] h-[500px] relative">
+      <div className='flex flex-col'>
+        <div className="w-[400px] h-[400px] relative">
         <motion.div
           className="absolute inset-0"
           style={{
@@ -49,9 +50,15 @@ export const Reward = ({ rewardType, onClose }: RewardModalProps) => {
         <h2 className="text-xl font-bold mb-4"></h2>
         <p>You received: {rewardType}</p>
 
-        <button className="mt-6 button" onClick={onClose}>
-          Collect
+        <button className="w-[325px] h-[109px] button text-white text-[30px]" onClick={onClose} style={{
+            backgroundImage: 'url("/assets/slot/reward/rewardButton.png")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            WebkitTextStroke: '1px black',
+          }}>
+          ЗАБРАТЬ НАГРАДУ
         </button>
+      </div>
       </div>
     </div>
   );
