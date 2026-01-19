@@ -11,9 +11,33 @@ const symbolToImage: Record<string, string> = {
 };
 
 const REEL_STRIP = [
-  '🪙','🎁','⚔️','🪙','🎁','⚔️','🪙','🎁','⚔️','🪙',
-  '🎁','⚔️','🪙','🎁','⚔️','🪙','🎁','⚔️','🪙','🎁',
-  '⚔️','🪙','🎁','⚔️','🪙','🎁','⚔️'
+  '🪙',
+  '🎁',
+  '⚔️',
+  '🪙',
+  '🎁',
+  '⚔️',
+  '🪙',
+  '🎁',
+  '⚔️',
+  '🪙',
+  '🎁',
+  '⚔️',
+  '🪙',
+  '🎁',
+  '⚔️',
+  '🪙',
+  '🎁',
+  '⚔️',
+  '🪙',
+  '🎁',
+  '⚔️',
+  '🪙',
+  '🎁',
+  '⚔️',
+  '🪙',
+  '🎁',
+  '⚔️',
 ];
 
 const SYMBOL_HEIGHT = 200;
@@ -97,12 +121,7 @@ export default function SlotReel({
             className="flex items-center justify-center"
             style={{ height: SYMBOL_HEIGHT }}
           >
-            <Image
-              src={symbolToImage[sym]}
-              alt={sym}
-              width={64}
-              height={64}
-            />
+            <Image src={symbolToImage[sym]} alt={sym} width={64} height={64} />
           </div>
         ))}
       </div>

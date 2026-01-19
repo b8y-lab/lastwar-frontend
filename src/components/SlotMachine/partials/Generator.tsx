@@ -1,17 +1,17 @@
-import { motion, type MotionStyle, type Transition } from "framer-motion";
+import { motion, type MotionStyle, type Transition } from 'framer-motion';
 
 const GENERATOR_STYLE: MotionStyle = {
   width: 130,
   height: 120,
   backgroundImage: 'url("/assets/slot/generator.png")',
-  backgroundSize: "cover",
-  backgroundPosition: "center",
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
 };
 
 const GENERATOR_TRANSITION: Transition = {
   duration: 0.3,
   repeat: Infinity,
-  ease: "linear",
+  ease: 'linear',
 };
 
 const GENERATOR_ANIMATE = {

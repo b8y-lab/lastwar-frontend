@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 const clouds = [
-  "/assets/slot/cloud1.png",
-  "/assets/slot/cloud2.png",
-  "/assets/slot/cloud3.png",
+  '/assets/slot/cloud1.png',
+  '/assets/slot/cloud2.png',
+  '/assets/slot/cloud3.png',
 ];
 
 function getRandom(min: number, max: number) {
@@ -65,13 +65,13 @@ export default function CloudsLayer() {
             x: cloud.startX,
           }}
           animate={{
-            x: cloud.direction === 1 ? "130%" : "-30%",
+            x: cloud.direction === 1 ? '130%' : '-30%',
             y: [0, -6, 0],
           }}
           transition={{
             duration: cloud.duration,
             repeat: Infinity,
-            ease: "linear",
+            ease: 'linear',
           }}
         />
       ))}
