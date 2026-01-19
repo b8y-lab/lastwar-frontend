@@ -15,7 +15,7 @@ export default function App()
         }}>
             <CloudsLayer />
             <QuestSideNav />
-            <PromoSideNav />
+            {/* <PromoSideNav /> */}
             <SlotMachine />
         </div>
     );
