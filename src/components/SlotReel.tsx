@@ -87,6 +87,7 @@ export default function SlotReel({
     });
   }, [symbol]);
 
+  // TODO: fix slot reels height
   return (
     <div className="relative overflow-hidden w-[90px] h-[190px] mt-[10px]">
       <div ref={reelRef}>
