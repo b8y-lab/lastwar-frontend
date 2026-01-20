@@ -8,36 +8,46 @@ const symbolToImage: Record<string, string> = {
   '🪙': '/assets/slot/icons/coin.png',
   '🎁': '/assets/slot/icons/gift.png',
   '⚔️': '/assets/slot/icons/molotok.png',
+  '💎': '/assets/slot/icons/diamond.png',
 };
 
 const REEL_STRIP = [
   '🪙',
   '🎁',
   '⚔️',
+  '💎',
   '🪙',
   '🎁',
   '⚔️',
+  '💎',
   '🪙',
   '🎁',
   '⚔️',
+  '💎',
   '🪙',
   '🎁',
   '⚔️',
+  '💎',
   '🪙',
   '🎁',
   '⚔️',
+  '💎',
   '🪙',
   '🎁',
   '⚔️',
+  '💎',
   '🪙',
   '🎁',
   '⚔️',
+  '💎',
+ '🪙',
+  '🎁',
+  '⚔️',
+  '💎',
   '🪙',
   '🎁',
   '⚔️',
-  '🪙',
-  '🎁',
-  '⚔️',
+  '💎',
 ];
 
 const SYMBOL_HEIGHT = 200;
@@ -113,7 +123,7 @@ export default function SlotReel({
 
   // TODO: fix slot reels height
   return (
-    <div className="relative overflow-hidden w-[90px] h-[190px] mt-[10px]">
+    <div className="relative overflow-hidden w-[90px] h-[190px]">
       <div ref={reelRef}>
         {REEL_STRIP.map((sym, i) => (
           <div

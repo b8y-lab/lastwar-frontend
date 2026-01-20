@@ -19,7 +19,7 @@ const SlotReel = dynamic(() => import('@/components/SlotReel'), { ssr: false });
 export default function SlotMachine() {
   const router = useRouter();
   const [spins, setSpins] = useState(1);
-  const [reels, setReels] = useState(['🪙', '🎁', '⚔️']);
+  const [reels, setReels] = useState(['🪙', '🎁', '⚔️', '💎']);
   const [rolling, setRolling] = useState(false);
   const [reward, setReward] = useState<null | RewardResult>(null);
 
