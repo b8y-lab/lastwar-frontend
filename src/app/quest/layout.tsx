@@ -20,6 +20,7 @@ export default async function QuestLayout({
       <TitleHeader title="Weekly Quests" back={referer} />
       <QuestHeader />
 
+      {/* TODO: Переделать фон */}
       <div className='h-screen max-w-[550px]' style={{
         backgroundImage: 'url("/assets/quests/quest-list-bg.png")',
         backgroundSize: 'cover',
