@@ -3,78 +3,74 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-const clouds = [
+const cloudImages = [
   '/assets/slot/cloud1.png',
   '/assets/slot/cloud2.png',
   '/assets/slot/cloud3.png',
 ];
 
-function getRandom(min: number, max: number) {
+const CLOUD_WIDTH = 200;
+const CONTAINER_WIDTH = 500;
+
+function random(min: number, max: number) {
   return Math.random() * (max - min) + min;
 }
 
-type Cloud = {
-  id: number;
-  src: string;
-  top: number;
-  scale: number;
-  duration: number;
-  direction: number;
-  startX: string;
-};
-
 export default function CloudsLayer() {
-  const [generatedClouds, setGeneratedClouds] = useState<Cloud[]>([]);
+  const [clouds, setClouds] = useState<any[]>([]);
 
   useEffect(() => {
-    const cloudsData = Array.from({ length: 5 }).map((_, i) => {
-      const direction = Math.random() > 0.5 ? 1 : -1;
-
-      return {
-        id: i,
-        src: clouds[i % clouds.length],
-        top: getRandom(10, 90),
-        scale: getRandom(0.35, 0.7),
-        duration: getRandom(20, 40),
-        direction,
-        startX:
-          direction === 1
-            ? `${getRandom(-100, 0)}%`
-            : `${getRandom(100, 200)}%`,
-      };
-    });
-
-    setGeneratedClouds(cloudsData);
+    setClouds(Array.from({ length: 6 }).map((_, i) => createCloud(i)));
   }, []);
 
-  if (generatedClouds.length === 0) return null;
+  function createCloud(id: number) {
+    return {
+      id,
+      src: cloudImages[id % cloudImages.length],
+      top: random(10, 80),
+      scale: random(0.25, 0.45),
+      duration: random(35, 60),
+      direction: Math.random() > 0.5 ? 1 : -1,
+    };
+  }
 
   return (
-    <div className="absolute top-0 w-[550px] h-[250px] overflow-hidden pointer-events-none z-0 mx-auto">
-      {generatedClouds.map((cloud) => (
-        <motion.img
-          key={cloud.id}
-          src={cloud.src}
-          alt="cloud"
-          className="absolute select-none w-[300px]"
-          style={{
-            top: cloud.top,
-            scale: cloud.scale,
-          }}
-          initial={{
-            x: cloud.startX,
-          }}
-          animate={{
-            x: cloud.direction === 1 ? '130%' : '-30%',
-            y: [0, -6, 0],
-          }}
-          transition={{
-            duration: cloud.duration,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-      ))}
+    <div className="absolute top-0 w-[550px] h-[250px] overflow-hidden pointer-events-none z-0">
+      {clouds.map((cloud) => {
+        const fromX =
+          cloud.direction === 1
+            ? -CLOUD_WIDTH
+            : CONTAINER_WIDTH + CLOUD_WIDTH;
+
+        const toX =
+          cloud.direction === 1
+            ? CONTAINER_WIDTH + CLOUD_WIDTH
+            : -CLOUD_WIDTH;
+
+        return (
+          <motion.img
+            key={cloud.id}
+            src={cloud.src}
+            alt="cloud"
+            className="absolute select-none w-[200px]"
+            style={{
+              top: `${cloud.top}%`,
+              scale: cloud.scale,
+              opacity: 1,
+            }}
+            initial={{ x: fromX }}
+            animate={{
+              x: toX,
+              y: [0, -4, 0],
+            }}
+            transition={{
+              duration: cloud.duration,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+        );
+      })}
     </div>
   );
 }

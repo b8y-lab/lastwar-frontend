@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 export const Reward = ({ rewardType, onClose }: RewardModalProps) => {
   return (
     <div
-      className="fixed inset-0 bg-black/70 flex items-center justify-center z-100"
+      className="fixed inset-0 bg-black/70 flex items-center justify-center"
       onClick={(e) => {
         e.stopPropagation();
         onClose();

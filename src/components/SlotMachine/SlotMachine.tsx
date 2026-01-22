@@ -91,13 +91,23 @@ export default function SlotMachine() {
   return (
     <div className="relative flex flex-col items-center justify-center z-2">
       <div
-        className="flex flex-col justify-start items-center max-w-[490px] h-[630px]"
+        className="flex flex-col justify-start items-center max-w-[500px] h-[650px]"
         style={{
           backgroundImage: 'url("/assets/slot/slot-house.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute -top-14 left-15 w-[50px] h-auto pointer-events-none z-0"
+        >
+        <source src="/assets/slot/anims/smoke.webm" type="video/webm" />
+      </video>
         <div className="flex m-[250px] gap-[10px]">
           <SlotReel symbol={reels[0]} spinning={rolling} />
           <SlotReel symbol={reels[1]} spinning={rolling} />
