@@ -106,7 +106,7 @@ export default function SlotMachine() {
           preload="auto"
           className="absolute -top-14 left-15 w-[50px] h-auto pointer-events-none z-0"
         >
-        <source src="/assets/slot/anims/smoke.webm" type="video/webm" />
+        <source src="/assets/slot/anims/smoke1.webm" type="video/webm" />
       </video>
         <div className="flex m-[250px] gap-[10px]">
           <SlotReel symbol={reels[0]} spinning={rolling} />
