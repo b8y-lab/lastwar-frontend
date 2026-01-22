@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import {
@@ -19,7 +20,7 @@ export default function PromoModal() {
   return (
     <>
       <button onClick={() => setIsOpen(true)} className="cursor-pointer">
-        <PercentBadgeIcon className="size-7" />
+        <Image src="/assets/slot/menu/promo.png" alt="" width={65} height={175} />
       </button>
 
       <Dialog

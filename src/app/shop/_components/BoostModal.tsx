@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 import { useState } from 'react';
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
@@ -10,7 +12,7 @@ export default function BoostModal() {
   return (
     <>
       <button onClick={() => setIsOpen(true)} className="cursor-pointer">
-        AD
+        <Image src="/assets/slot/menu/boost.png" alt="" width={65} height={175} />
       </button>
 
       <Dialog

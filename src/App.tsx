@@ -4,6 +4,7 @@ import PromoSideNav from '@/components/PromoSideNav.tsx';
 import SlotMachine from '@/components/SlotMachine/SlotMachine';
 import FooterNav from '@/components/FooterNav.tsx';
 import CloudsLayer from './components/CloudsLayer';
+import { Header } from './components/SlotMachine/Partials/Header';
 
 export default function App() {
   return (
@@ -17,10 +18,15 @@ export default function App() {
       }}
     >
       <CloudsLayer />
-      <div className='absolute top-0 left-0 z-3'>
-        <QuestSideNav />
+      <Header />
+      <div className="mt-10">
+        <div className='absolute top-40 left-10 z-3'>
+          <QuestSideNav />
+        </div>
+        <div className='absolute top-40 right-10 z-3'>
+          <PromoSideNav />
+        </div>
       </div>
-      {/* <PromoSideNav /> */}
       <SlotMachine />
     </div>
   );
