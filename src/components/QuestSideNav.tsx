@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function QuestSideNav() {
   return (
-    <div className="flex flex-col gap-5 top-15 left-2 items-center justify-around z-3 absolute">
+    <div className="flex flex-col gap-5 z-3">
       <Link
         href="/quest/day"
         className="flex items-center justify-around shadow-lg"

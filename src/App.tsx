@@ -9,7 +9,7 @@ export default function App() {
   return (
     <div
       id="app"
-      className="flex flex-col justify-start items-center"
+      className="flex flex-col max-w-[550px] relative"
       style={{
         backgroundImage: 'url("/assets/slot/slot-bg.png")',
         backgroundSize: 'cover',
@@ -17,7 +17,9 @@ export default function App() {
       }}
     >
       <CloudsLayer />
-      <QuestSideNav />
+      <div className='absolute top-0 left-0 z-3'>
+        <QuestSideNav />
+      </div>
       {/* <PromoSideNav /> */}
       <SlotMachine />
     </div>

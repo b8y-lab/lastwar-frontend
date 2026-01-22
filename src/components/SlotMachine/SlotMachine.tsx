@@ -19,7 +19,7 @@ const SlotReel = dynamic(() => import('@/components/SlotReel'), { ssr: false });
 export default function SlotMachine() {
   const router = useRouter();
   const [spins, setSpins] = useState(1);
-  const [reels, setReels] = useState(['🪙', '🎁', '⚔️', '💎']);
+  const [reels, setReels] = useState(['🪙', '🎁', '⚔️', '💎', "⚡️"]);
   const [rolling, setRolling] = useState(false);
   const [reward, setReward] = useState<null | RewardResult>(null);
 
@@ -89,9 +89,9 @@ export default function SlotMachine() {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center z-2 relative">
+    <div className="relative flex flex-col items-center justify-center z-2">
       <div
-        className="flex flex-col justify-start items-center w-[490px] h-[630px]"
+        className="flex flex-col justify-start items-center max-w-[490px] h-[630px]"
         style={{
           backgroundImage: 'url("/assets/slot/slot-house.png")',
           backgroundSize: 'cover',

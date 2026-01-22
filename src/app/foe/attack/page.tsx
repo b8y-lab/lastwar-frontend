@@ -3,7 +3,12 @@ import AttackRewardModal from '@/app/reward/_components/AttackRewardModal.tsx';
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-start h-screen w-full">
+    <div className="flex flex-col items-center justify-start max-w-[550px] h-screen mx-auto" style={{
+        backgroundImage: 'url("/assets/attack/attack-bg.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        width: 500
+      }}>
       <FoeHeader />
 
       <div className="w-full flex flex-row items-center justify-center py-5">

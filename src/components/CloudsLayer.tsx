@@ -50,7 +50,7 @@ export default function CloudsLayer() {
   if (generatedClouds.length === 0) return null;
 
   return (
-    <div className="absolute top-0 left-0 w-full h-[250px] overflow-hidden pointer-events-none z-0">
+    <div className="absolute top-0 w-[550px] h-[250px] overflow-hidden pointer-events-none z-0 mx-auto">
       {generatedClouds.map((cloud) => (
         <motion.img
           key={cloud.id}
