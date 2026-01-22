@@ -11,8 +11,8 @@ import {
   SpinResult,
 } from '@/utils/slot/symbols.ts';
 import BuySpinModal from '@/app/shop/_components/BuySpinModal.tsx';
-import { Generator } from '@/components/SlotMachine/Partials/Generator';
-import { Reward } from '@/components/SlotMachine/Partials/Reward';
+import { Generator } from '@/components/SlotMachine/partials/Generator.tsx';
+import { Reward } from '@/components/SlotMachine/partials/Reward.tsx';
 
 const SlotReel = dynamic(() => import('@/components/SlotReel'), { ssr: false });
 
