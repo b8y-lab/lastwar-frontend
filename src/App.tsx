@@ -4,7 +4,7 @@ import PromoSideNav from '@/components/PromoSideNav.tsx';
 import SlotMachine from '@/components/SlotMachine/SlotMachine';
 import FooterNav from '@/components/FooterNav.tsx';
 import CloudsLayer from '@/components/CloudsLayer';
-import { Header } from '@/components/SlotMachine/Partials/Header';
+import { Header } from '@/components/SlotMachine/partials/Header';
 
 export default function App() {
   return (
