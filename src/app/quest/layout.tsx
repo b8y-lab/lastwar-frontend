@@ -12,11 +12,21 @@ export default async function QuestLayout({
   const referer = headersList.get('referer') as string;
 
   return (
-    <div className="flex flex-col items-center justify-start h-screen w-full">
+    <div className="flex flex-col items-center justify-start h-screen max-w-[550px] mx-auto" style={{
+        backgroundImage: 'url("/assets/quests/quest-bg.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}>
       <TitleHeader title="Weekly Quests" back={referer} />
       <QuestHeader />
 
-      {children}
+      <div className='h-screen max-w-[550px]' style={{
+        backgroundImage: 'url("/assets/quests/quest-list-bg.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}>
+        {children}
+      </div>
     </div>
   );
 }
