@@ -1,4 +1,3 @@
-export enum AlgoEnum 
-{
-    hs256 = "HS256",
+export enum AlgoEnum {
+  hs256 = 'HS256',
 }
