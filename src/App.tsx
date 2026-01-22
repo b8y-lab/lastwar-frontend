@@ -3,8 +3,8 @@ import QuestSideNav from '@/components/QuestSideNav.tsx';
 import PromoSideNav from '@/components/PromoSideNav.tsx';
 import SlotMachine from '@/components/SlotMachine/SlotMachine';
 import FooterNav from '@/components/FooterNav.tsx';
-import CloudsLayer from './components/CloudsLayer';
-import { Header } from './components/SlotMachine/Partials/Header';
+import CloudsLayer from '@/components/CloudsLayer';
+import { Header } from '@/components/SlotMachine/Partials/Header';
 
 export default function App() {
   return (
