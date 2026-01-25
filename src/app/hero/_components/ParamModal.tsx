@@ -4,16 +4,16 @@ import { useState } from 'react';
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
-export default function ParamModal({ id }: { id: number }) {
+export default function CarParamModal({ id }: { id: number }) {
   let [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="button w-1/2 h-10 flex items-center justify-around"
+        className="button w-1/2 h-10 flex items-center justify-around" disabled
       >
-        Param
+        CarParam
       </button>
 
       <Dialog
