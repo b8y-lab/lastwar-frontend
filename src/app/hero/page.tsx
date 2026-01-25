@@ -3,7 +3,7 @@ import UserHeader from '@/app/profile/_components/UserHeader.tsx';
 import TitleHeader from '@/components/TitleHeader.tsx';
 import Link from 'next/link';
 import SkillModal from '@/app/hero/_components/SkillModal.tsx';
-import ParamModal from '@/app/hero/_components/ParamModal.tsx';
+import ParamModal from '@/app/hero/_components/CarParamModal.tsx';
 import ParamsModal from '@/app/hero/_components/ParamsModal.tsx';
 
 interface IProps {
