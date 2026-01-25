@@ -32,13 +32,13 @@ export default async function Page({ searchParams }: IProps) {
           </Link>
 
           <div className="w-full flex flex-row items-center justify-between">
-            <ParamModal id={1} />
-            <ParamModal id={2} />
+            <CarParamModal id={1} />
+            <CarParamModal id={2} />
           </div>
 
           <div className="w-full flex flex-row items-center justify-between">
-            <ParamModal id={3} />
-            <ParamModal id={4} />
+            <CarParamModal id={3} />
+            <CarParamModal id={4} />
           </div>
         </div>
       </div>
