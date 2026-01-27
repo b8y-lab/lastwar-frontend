@@ -106,8 +106,8 @@ export default function SlotMachine() {
           preload="auto"
           className="absolute -top-14 left-15 w-[50px] h-auto pointer-events-none z-0"
         >
-        <source src="/assets/slot/anims/smoke1.webm" type="video/webm" />
-      </video>
+          <source src="/assets/slot/anims/smoke.webm" type="video/webm" />
+        </video>
         <div className="flex m-[250px] gap-[10px]">
           <SlotReel symbol={reels[0]} spinning={rolling} />
           <SlotReel symbol={reels[1]} spinning={rolling} />
@@ -118,6 +118,17 @@ export default function SlotMachine() {
       <div className="absolute bottom-[13px] left-0">
         <Generator />
       </div>
+
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="absolute -bottom-5 right-10 w-[80px] h-auto pointer-events-none z-0"
+      >
+        <source src="/assets/slot/anims/wheel.webm" type="video/webm" />
+      </video>
 
       {spins > 0 ? (
         <button
