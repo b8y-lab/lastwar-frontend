@@ -25,11 +25,10 @@ body {
   height: 100vh;
   overflow: hidden;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
-.toolbar {
+/* .toolbar {
   width: 100%;
   position: absolute;
   top: 0;
@@ -39,23 +38,23 @@ body {
   float: left;
   display: inline-block;
   line-height: 36px;
-}
+} */
 
-.spritePosition {
+/* .spritePosition {
   margin: 10px 0 0 10px;
   font-size: 12px;
-}
-
+} */
+/* 
 .button {
   outline: 0;
   border: 0;
   cursor: pointer;
   transition: all 0.3s;
   font-family: monospace;
-}
+} */
 
 .spin-button {
-  background-image: url('/assets/slot/spinButton.png');
+  background-image: url('/assets/slot-machine/spinbtn.svg');
   background-size: cover;
   background-position: center;
   transition: transform 0.05s ease;
@@ -63,13 +62,12 @@ body {
 
 /* КНОПКА НАЖАТА */
 .spin-button:active {
-  background-image: url('/assets/slot/spinButtonPressed.png');
+  background-image: url('/assets/slot-machine/spinbtnpressed.svg');
   transform: scale(0.98);
 }
 
 /* КОГДА СПИН ИДЁТ */
 .spin-button:disabled {
-  background-image: url('/assets/slot/spinButton.png');
+  background-image: url('/assets/slot-machine/spinbtn.svg');
   cursor: not-allowed;
-  opacity: 0.9;
 }

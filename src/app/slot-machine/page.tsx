@@ -1,6 +1,5 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import {
@@ -8,15 +7,16 @@ import {
   getReelsRandomArray,
   getResultBySymbols,
   RewardResult,
-  SpinResult,
 } from '@/utils/slot/symbols.ts';
-import BuySpinModal from '@/app/shop/_components/BuySpinModal.tsx';
-import { Generator } from '@/components/SlotMachine/partials/Generator.tsx';
-import { Reward } from '@/components/SlotMachine/partials/Reward.tsx';
+import { Reward } from '@/app/slot-machine/_components/Reward.tsx';
+import { Bushes } from '@/app/slot-machine/_components/Bushes.tsx';
+import { SlotReels } from '@/app/slot-machine/_components/SlotReels.tsx';
+import { SmokeAnimation } from '@/app/slot-machine/_components/SmokeAnimation.tsx';
+import { GeneratorVideo } from '@/app/slot-machine/_components/GeneratorVideo.tsx';
+import { FortuneWheel } from '@/app/slot-machine/_components/FortuneWheel.tsx';
+import { SpinButton } from '@/app/slot-machine/_components/SpinButton.tsx';
 
-const SlotReel = dynamic(() => import('@/components/SlotReel'), { ssr: false });
-
-export default function SlotMachine() {
+export default function SlotMachinePage() {
   const router = useRouter();
   const [spins, setSpins] = useState(1);
   const [reels, setReels] = useState(['🪙', '🎁', '⚔️', '💎', "⚡️"]);
@@ -91,60 +91,27 @@ export default function SlotMachine() {
   return (
     <div className="relative flex flex-col items-center justify-center z-2">
       <div
-        className="flex flex-col justify-start items-center max-w-[500px] h-[650px]"
+        className="flex flex-col justify-start items-center max-w-[500px] h-[560px]"
         style={{
-          backgroundImage: 'url("/assets/slot/slot-house.png")',
+          backgroundImage: 'url("/assets/slot-machine/slotmachine.svg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute -top-14 left-15 w-[50px] h-auto pointer-events-none z-0"
-        >
-          <source src="/assets/slot/anims/smoke.webm" type="video/webm" />
-        </video>
-        <div className="flex m-[250px] gap-[10px]">
-          <SlotReel symbol={reels[0]} spinning={rolling} />
-          <SlotReel symbol={reels[1]} spinning={rolling} />
-          <SlotReel symbol={reels[2]} spinning={rolling} />
-        </div>
+        <div className='absolute top-20 left-1 w-[480px] h-[100px]' style={{
+          backgroundImage: 'url("/assets/slot-machine/snowonroof.svg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}></div>
+        <SmokeAnimation />
+        <SlotReels reels={reels} rolling={rolling} />
       </div>
 
-      <div className="absolute bottom-[13px] left-0">
-        <Generator />
-      </div>
+      <Bushes />
+      <GeneratorVideo />
+      <FortuneWheel />
 
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        className="absolute -bottom-5 right-10 w-[80px] h-auto pointer-events-none z-0"
-      >
-        <source src="/assets/slot/anims/wheel.webm" type="video/webm" />
-      </video>
-
-      {spins > 0 ? (
-        <button
-          onClick={spin}
-          disabled={rolling}
-          className="spin-button button w-[225px] h-[140px] absolute -bottom-20"
-        ></button>
-      ) : (
-        <div className="flex flew-row justify-around items-center w-full h-15 mt-2">
-          <button className="button p-3 w-1/2 h-15">
-            Buy 50 Spins <br />
-            for 25 Diam.
-          </button>
-          <BuySpinModal />
-        </div>
-      )}
+      <SpinButton spins={spins} rolling={rolling} onSpin={spin} />
 
       {reward && (
         <Reward
@@ -152,6 +119,8 @@ export default function SlotMachine() {
           onClose={() => setReward(null)}
         />
       )}
+
+      
     </div>
   );
 }

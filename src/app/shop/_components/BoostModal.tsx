@@ -12,7 +12,7 @@ export default function BoostModal() {
   return (
     <>
       <button onClick={() => setIsOpen(true)} className="cursor-pointer">
-        <Image src="/assets/slot/menu/boost.png" alt="" width={65} height={175} />
+        <Image src="/assets/slot-machine/boostbutton.svg" alt="" width={65} height={175} />
       </button>
 
       <Dialog

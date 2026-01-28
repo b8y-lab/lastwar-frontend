@@ -6,20 +6,20 @@ export default function QuestSideNav() {
     <div className="flex flex-col gap-5 z-3">
       <Link
         href="/quest/day"
-        className="flex items-center justify-around shadow-lg"
+        className="flex items-center justify-around"
       >
-        <Image src="/assets/slot/menu/quests.png" alt="" width={65} height={175} />
+        <Image src="/assets/slot-machine/storyquestsbtn.svg" alt="" width={65} height={175} />
       </Link>
 
       <Link
         href="/quest/plot"
-        className="flex items-center justify-center shadow-lg"
+        className="flex items-center justify-center"
       >
-        <Image src="/assets/slot/menu/quests2.png" alt="" width={65} height={175} />
+        <Image src="/assets/slot-machine/seasonquestsbtn.svg" alt="" width={65} height={175} />
       </Link>
 
-      <Link href="/#" className="flex items-center justify-center shadow-lg">
-        <Image src="/assets/slot/menu/monopoly.png" alt="" width={65} height={175} />
+      <Link href="/#" className="flex items-center justify-center">
+        <Image src="/assets/slot-machine/monopolybtn.svg" alt="" width={65} height={175} />
       </Link>
     </div>
   );
