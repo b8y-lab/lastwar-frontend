@@ -12,11 +12,6 @@ export default function QuestRewardsModal() {
 
         <div
           className="flex-1 w-full overflow-auto"
-          style={{
-            backgroundImage: 'url("/assets/quests/quest-list-bg.png")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
         >
           <div className="flex flex-col items-center justify-start h-screen w-full">
             <div className="flex flex-row justify-around items-center w-full h-20 my-10">
