@@ -90,7 +90,7 @@ const REEL_STRIP = [
   '⚡️',
 ];
 
-const SYMBOL_HEIGHT = 200;
+const SYMBOL_HEIGHT = 170;
 const STRIP_HEIGHT = REEL_STRIP.length * SYMBOL_HEIGHT;
 
 export default function SlotReel({
@@ -163,7 +163,7 @@ export default function SlotReel({
 
   // TODO: fix slot reels height
   return (
-    <div className="relative overflow-hidden w-[90px] h-[190px]">
+    <div className="relative overflow-hidden w-[80px] h-[190px]">
       <div ref={reelRef}>
         {REEL_STRIP.map((sym, i) => (
           <div
@@ -171,7 +171,7 @@ export default function SlotReel({
             className="flex items-center justify-center"
             style={{ height: SYMBOL_HEIGHT }}
           >
-            <Image src={symbolToImage[sym]} alt={sym} width={64} height={64} />
+            <Image src={symbolToImage[sym]} alt={sym} width={48} height={48} />
           </div>
         ))}
       </div>

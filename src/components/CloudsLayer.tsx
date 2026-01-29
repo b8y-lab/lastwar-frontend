@@ -35,7 +35,7 @@ export default function CloudsLayer() {
   }
 
   return (
-    <div className="absolute top-0 w-[550px] h-[250px] overflow-hidden pointer-events-none z-0">
+    <div className="absolute top-0 w-full h-[250px] overflow-hidden pointer-events-none z-0">
       {clouds.map((cloud) => {
         const fromX =
           cloud.direction === 1

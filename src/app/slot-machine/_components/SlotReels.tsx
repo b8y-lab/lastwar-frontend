@@ -8,7 +8,7 @@ interface SlotReelsProps {
 }
 
 export const SlotReels = ({ reels, rolling }: SlotReelsProps) => (
-  <div className="flex m-[250px] gap-[10px]">
+  <div className="flex m-[205px]">
     <SlotReel symbol={reels[0]} spinning={rolling} />
     <SlotReel symbol={reels[1]} spinning={rolling} />
     <SlotReel symbol={reels[2]} spinning={rolling} />

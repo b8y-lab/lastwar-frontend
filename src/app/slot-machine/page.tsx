@@ -89,16 +89,16 @@ export default function SlotMachinePage() {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center z-2">
+    <div className="relative flex flex-col items-center justify-center z-2 w-full">
       <div
-        className="flex flex-col justify-start items-center max-w-[500px] h-[560px]"
+        className="flex flex-col justify-start items-center w-full max-w-[410px] h-[470px]"
         style={{
           backgroundImage: 'url("/assets/slot-machine/slotmachine.svg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div className='absolute top-20 left-1 w-[480px] h-[100px]' style={{
+        <div className='absolute top-16 left-0 right-0 h-[84px] mx-auto max-w-[320px]' style={{
           backgroundImage: 'url("/assets/slot-machine/snowonroof.svg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',

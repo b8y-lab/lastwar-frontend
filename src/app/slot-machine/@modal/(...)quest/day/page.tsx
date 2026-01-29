@@ -4,20 +4,60 @@ import { QuestModal } from '@/app/slot-machine/_components/QuestModal.tsx';
 import QuestHeader from '@/app/quest/_components/QuestHeader.tsx';
 
 export default function QuestDayModal() {
-  const quests = [...Array(8)].map((_, i) => (
-    <div
-      key={i}
-      className="flex flex-row justify-between items-center w-full h-15 pl-5 my-2"
-    >
-      <span className="w-15">
-        Daily <br />
-        Quest
-      </span>
-      <span className="px-5 w-35">Progress 3/5</span>
-      <span>Icon</span>
-      <button className="button w-20 h-10">Get</button>
-    </div>
-  ));
+  const quests = [...Array(8)].map((_, i) => {
+    // NOTE: random progress for demo: 1-5
+    const current = (i % 5) + 1; 
+    const total = 5;
+    const progressPercent = (current / total) * 100;
+
+    return (
+      <div
+        key={i}
+        className="flex flex-row justify-between items-center w-full h-15 px-2 my-2 gap-2"
+      >
+        <span className="w-15">
+          Собери<br />100к монет
+        </span>
+        <div className="relative" style={{ width: 100, height: 28 }}>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'url("/assets/quests/emptybar.svg")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          />
+          <div
+            className="absolute inset-0 overflow-hidden"
+            style={{ width: `${progressPercent}%` }}
+          >
+            <div
+              style={{
+                width: 100,
+                height: 28,
+                backgroundImage: 'url("/assets/quests/filledbar.svg")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+            />
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center text-sm font-bold">
+            {current}/{total}
+          </div>
+        </div>
+        <span className='w-[30px] h-[28px] flex items-center justify-center' style={{
+            backgroundImage: 'url("/assets/quests/token.svg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}></span>
+        <button className="button w-[60px] h-[32px] cursor-pointer flex items-center justify-center" style={{
+            backgroundImage: 'url("/assets/quests/takegreenbtn.svg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}>Забрать</button>
+      </div>
+    );
+  });
 
   return (
     <QuestModal>
@@ -28,9 +68,13 @@ export default function QuestDayModal() {
         <div className="flex-1 w-full overflow-auto">
           {quests}
         </div>
-        <div className="flex flex-row justify-between items-center w-full h-20 pl-5 my-5">
-            <span>Quests are refreshing in 15:23:05</span>
-            <button className="button w-30 h-15">Get All</button>
+        <div className="flex flex-row justify-between items-center w-full h-20 px-2 my-5 gap-2">
+            <span>До конца сезона осталось 36 дней</span>
+            <button className="button w-30 h-15 cursor-pointer" style={{
+          backgroundImage: 'url("/assets/quests/takegreenbtn.svg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}>Забрать все</button>
           </div>
       </div>
     </QuestModal>

@@ -12,7 +12,7 @@ export const SpinButton = ({ spins, rolling, onSpin }: SpinButtonProps) => {
       <button
         onClick={onSpin}
         disabled={rolling}
-        className="spin-button button w-[225px] h-[140px] absolute -bottom-35 z-20"
+        className="spin-button button w-[189px] h-[118px] absolute -bottom-29 z-20"
       ></button>
     );
   }

@@ -5,7 +5,7 @@ export const SmokeAnimation = () => (
     muted
     playsInline
     preload="auto"
-    className="absolute -top-14 left-15 w-[50px] h-auto pointer-events-none z-0"
+    className="absolute -top-12 left-13 w-[42px] h-auto pointer-events-none z-0"
   >
     <source src="/assets/slot/anims/smoke.webm" type="video/webm" />
   </video>

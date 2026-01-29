@@ -1,13 +1,13 @@
 import FoeHeader from '@/app/foe/_components/FoeHeader.tsx';
 import AttackRewardModal from '@/app/reward/_components/AttackRewardModal.tsx';
+import { CONTAINER_CLASS } from '@/constants/layout';
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-start max-w-[550px] h-screen mx-auto" style={{
+    <div className={`flex flex-col items-center justify-start ${CONTAINER_CLASS} h-screen mx-auto w-full px-4`} style={{
         backgroundImage: 'url("/assets/attack/attack-bg.png")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        width: 500
       }}>
       <FoeHeader />
 
