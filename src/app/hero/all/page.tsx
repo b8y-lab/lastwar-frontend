@@ -1,3 +1,5 @@
+'use client';
+
 import TitleHeader from '@/components/TitleHeader.tsx';
 import FooterNav from '@/components/FooterNav.tsx';
 import HeroLink from '@/app/hero/_components/HeroLink.tsx';
@@ -42,7 +44,7 @@ export default function Page() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}>
-          
+
       <TitleHeader title="Герои" />
 
       <div className="flex gap-[5px] items-center justify-center flex-wrap p-[10px] pt-[50px] pb-[50px]">

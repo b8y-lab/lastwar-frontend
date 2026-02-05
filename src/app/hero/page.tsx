@@ -25,7 +25,7 @@ export default async function Page({ searchParams }: IProps) {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }}>
-        <UserHeader />
+        {/* <UserHeader /> */}
         {/* <TitleHeader title={'Hero #' + hid} /> */}
 
         <div className='w-[255px] h-[50px] flex items-center justify-center' style={{
@@ -90,7 +90,7 @@ export default async function Page({ searchParams }: IProps) {
           <SkillModal />
         </div>
 
-        <FooterNav />
+        {/* <FooterNav /> */}
       </div>
     </div>
   );
