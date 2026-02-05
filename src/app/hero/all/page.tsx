@@ -31,7 +31,13 @@ for (let i = mockHeroes.length + 1; i <= TOTAL_SLOTS; i++) {
 
 export default function Page() {
   return (
-    <div className={`w-full ${CONTAINER_CLASS} aspect-[450/770] mt-[40px]`} style={{
+    <div className='w-full h-screen overflow-hidden' style={{
+          backgroundImage: 'url("/assets/heroes/parchment-bg.svg")',
+          backgroundSize: "160%",
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}>
+      <div className={`w-full ${CONTAINER_CLASS} aspect-[450/770] mt-[40px]`} style={{
           backgroundImage: 'url("/assets/heroes/bg.svg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -55,6 +61,7 @@ export default function Page() {
       </div>
 
       {/* <FooterNav /> */}
+    </div>
     </div>
   );
 }

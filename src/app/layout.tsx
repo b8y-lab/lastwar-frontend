@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 //import { inter } from "@/app/ui/fonts";
 import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
+import LoadingProvider from '@/components/LoadingProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,7 +22,9 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.className}>
-      <body>{children}</body>
+      <body>
+        <LoadingProvider>{children}</LoadingProvider>
+      </body>
     </html>
   );
 }

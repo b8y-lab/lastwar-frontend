@@ -11,7 +11,14 @@ export default function CarParamModal({ id }: { id: number }) {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="button w-1/2 h-10 flex items-center justify-around" disabled
+        className="button w-[80px] h-[80px] flex items-center justify-around"
+        disabled
+        style={{
+          backgroundImage: 'url("/assets/heroes/hero/equip-item-bg.svg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
       >
         CarParam
       </button>

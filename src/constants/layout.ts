@@ -4,10 +4,10 @@
  */
 
 // NOTE: maximum container width for all pages
-export const MAX_CONTAINER_WIDTH = '450px';
+export const MAX_CONTAINER_WIDTH = '460px';
 
 // NOTE: tailwind class for max container width
-export const CONTAINER_CLASS = 'max-w-[450px]';
+export const CONTAINER_CLASS = 'max-w-[460px]';
 
 // NOTE: modal width (slightly smaller than container for padding)
 export const MODAL_WIDTH = '400px';
