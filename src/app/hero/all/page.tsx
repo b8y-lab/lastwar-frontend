@@ -1,9 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import TitleHeader from '@/components/TitleHeader.tsx';
 import FooterNav from '@/components/FooterNav.tsx';
 import HeroLink from '@/app/hero/_components/HeroLink.tsx';
 import { CONTAINER_CLASS } from '@/constants/layout';
+import DiamondsModal from '@/components/DiamondsModal';
 
 interface HeroSlot {
   id: string;
@@ -32,6 +34,14 @@ for (let i = mockHeroes.length + 1; i <= TOTAL_SLOTS; i++) {
 }
 
 export default function Page() {
+  const [isDiamondsModalOpen, setIsDiamondsModalOpen] = useState(true);
+  const [modalType, setModalType] = useState<'insufficient' | 'confirm'>('insufficient');
+
+  const handleContinue = () => {
+    setIsDiamondsModalOpen(false);
+    console.log('Действие подтверждено');
+  };
+
   return (
     <div className='w-full h-screen overflow-hidden' style={{
           backgroundImage: 'url("/assets/heroes/parchment-bg.svg")',
@@ -46,6 +56,36 @@ export default function Page() {
         }}>
 
       <TitleHeader title="Герои" />
+
+      <DiamondsModal
+        isOpen={isDiamondsModalOpen}
+        onClose={() => setIsDiamondsModalOpen(false)}
+        type={modalType}
+        missingAmount={150}
+        diamondsToUse={50}
+        onContinue={handleContinue}
+      />
+
+      <div className="absolute top-20 right-4 flex flex-col gap-2">
+        <button
+          onClick={() => {
+            setModalType('insufficient');
+            setIsDiamondsModalOpen(true);
+          }}
+          className="bg-red-500 text-white px-4 py-2 rounded"
+        >
+          Недостаточно
+        </button>
+        <button
+          onClick={() => {
+            setModalType('confirm');
+            setIsDiamondsModalOpen(true);
+          }}
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          Подтверждение
+        </button>
+      </div>
 
       <div className="flex gap-[5px] items-center justify-center flex-wrap p-[10px] pt-[50px] pb-[50px]">
         {allSlots.map((slot) => (
