@@ -12,7 +12,7 @@ const symbolToImage: Record<string, string> = {
   '🛡': '/assets/slot/icons/defense.png',
   '🔑': '/assets/slot/icons/key.png',
   '🎫': '/assets/slot/icons/ticket.png',
-  '⚡️': '/assets/slot/icons/energy.png'
+  '⚡️': '/assets/slot/icons/energy.png',
 };
 
 const REEL_STRIP = [

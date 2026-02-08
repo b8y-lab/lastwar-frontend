@@ -1,6 +1,9 @@
 import dynamic from 'next/dynamic';
 
-const SlotReel = dynamic(() => import('@/app/slot-machine/_components/SlotReel'), { ssr: false });
+const SlotReel = dynamic(
+  () => import('@/app/slot-machine/_components/SlotReel'),
+  { ssr: false }
+);
 
 interface SlotReelsProps {
   reels: string[];

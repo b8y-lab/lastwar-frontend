@@ -19,7 +19,7 @@ import { SpinButton } from '@/app/slot-machine/_components/SpinButton.tsx';
 export default function SlotMachinePage() {
   const router = useRouter();
   const [spins, setSpins] = useState(1);
-  const [reels, setReels] = useState(['🪙', '🎁', '⚔️', '💎', "⚡️"]);
+  const [reels, setReels] = useState(['🪙', '🎁', '⚔️', '💎', '⚡️']);
   const [rolling, setRolling] = useState(false);
   const [reward, setReward] = useState<null | RewardResult>(null);
 
@@ -98,11 +98,14 @@ export default function SlotMachinePage() {
           backgroundPosition: 'center',
         }}
       >
-        <div className='absolute top-16 left-0 right-0 h-[84px] mx-auto max-w-[320px]' style={{
-          backgroundImage: 'url("/assets/slot-machine/snowonroof.svg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}></div>
+        <div
+          className="absolute top-16 left-0 right-0 h-[84px] mx-auto max-w-[320px]"
+          style={{
+            backgroundImage: 'url("/assets/slot-machine/snowonroof.svg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        ></div>
         <SmokeAnimation />
         <SlotReels reels={reels} rolling={rolling} />
       </div>
@@ -119,8 +122,6 @@ export default function SlotMachinePage() {
           onClose={() => setReward(null)}
         />
       )}
-
-      
     </div>
   );
 }

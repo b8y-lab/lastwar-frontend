@@ -20,35 +20,51 @@ export default function QuestHeader() {
 
   return (
     <div className="w-full flex flex-row items-center justify-between relative my-5 gap-[5px]">
-      <Link href="/quest/day" className={getClassName('/quest/day')} style={{
-        backgroundImage: getBackgroundImage('/quest/day'),
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}>
+      <Link
+        href="/quest/day"
+        className={getClassName('/quest/day')}
+        style={{
+          backgroundImage: getBackgroundImage('/quest/day'),
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
         Daily
       </Link>
 
-      <Link href="/quest/week" className={getClassName('/quest/week')} style={{
-        backgroundImage: getBackgroundImage('/quest/week'),
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}>
+      <Link
+        href="/quest/week"
+        className={getClassName('/quest/week')}
+        style={{
+          backgroundImage: getBackgroundImage('/quest/week'),
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
         Weekly
       </Link>
 
-      <Link href="/quest/season" className={getClassName('/quest/season')} style={{
-        backgroundImage: getBackgroundImage('/quest/season'),
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}>
+      <Link
+        href="/quest/season"
+        className={getClassName('/quest/season')}
+        style={{
+          backgroundImage: getBackgroundImage('/quest/season'),
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
         Seasonal
       </Link>
 
-      <Link href="/quest/rewards" className={getClassName('/quest/rewards')} style={{
-        backgroundImage: getBackgroundImage('/quest/rewards'),
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}>
+      <Link
+        href="/quest/rewards"
+        className={getClassName('/quest/rewards')}
+        style={{
+          backgroundImage: getBackgroundImage('/quest/rewards'),
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
         Rewards
       </Link>
     </div>

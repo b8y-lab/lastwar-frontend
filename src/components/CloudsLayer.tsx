@@ -38,14 +38,10 @@ export default function CloudsLayer() {
     <div className="absolute top-0 w-full h-[250px] overflow-hidden pointer-events-none z-0">
       {clouds.map((cloud) => {
         const fromX =
-          cloud.direction === 1
-            ? -CLOUD_WIDTH
-            : CONTAINER_WIDTH + CLOUD_WIDTH;
+          cloud.direction === 1 ? -CLOUD_WIDTH : CONTAINER_WIDTH + CLOUD_WIDTH;
 
         const toX =
-          cloud.direction === 1
-            ? CONTAINER_WIDTH + CLOUD_WIDTH
-            : -CLOUD_WIDTH;
+          cloud.direction === 1 ? CONTAINER_WIDTH + CLOUD_WIDTH : -CLOUD_WIDTH;
 
         return (
           <motion.img

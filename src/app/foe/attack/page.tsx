@@ -4,11 +4,14 @@ import { CONTAINER_CLASS } from '@/constants/layout';
 
 export default function Page() {
   return (
-    <div className={`flex flex-col items-center justify-start ${CONTAINER_CLASS} h-screen mx-auto w-full px-4`} style={{
+    <div
+      className={`flex flex-col items-center justify-start ${CONTAINER_CLASS} h-screen mx-auto w-full px-4`}
+      style={{
         backgroundImage: 'url("/assets/attack/attack-bg.png")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-      }}>
+      }}
+    >
       <FoeHeader />
 
       <div className="w-full flex flex-row items-center justify-center py-5">

@@ -19,7 +19,7 @@ export default function DiamondsModal({
   type,
   missingAmount,
   diamondsToUse,
-  onContinue
+  onContinue,
 }: DiamondsModalProps) {
   const [dontAskAgain, setDontAskAgain] = useState(false);
 
@@ -37,17 +37,13 @@ export default function DiamondsModal({
     : '/assets/diamonds/use-diamonds-bg.svg';
 
   return (
-    <Dialog
-      open={isOpen}
-      onClose={onClose}
-      className="relative z-50"
-    >
+    <Dialog open={isOpen} onClose={onClose} className="relative z-50">
       <div className="fixed inset-0 flex items-center justify-center">
         <DialogPanel
           className="w-[310px] h-[410px] relative p-3.5 flex flex-col"
           style={{
             backgroundImage: `url("${backgroundImage}")`,
-            backgroundSize: "cover",
+            backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
           }}
@@ -56,7 +52,12 @@ export default function DiamondsModal({
             onClick={onClose}
             className="absolute right-2 top-3 cursor-pointer"
           >
-            <Image width={40} height={40} src="/assets/settings/close-btn.svg" alt='' />
+            <Image
+              width={40}
+              height={40}
+              src="/assets/settings/close-btn.svg"
+              alt=""
+            />
           </button>
 
           <DialogTitle className="text-[20px] text-center font-bold">
@@ -70,9 +71,7 @@ export default function DiamondsModal({
                   Вам не хватает {missingAmount} алмазов
                 </div>
 
-                <div className="text-center">
-                  Хотите зайти в магазин?
-                </div>
+                <div className="text-center">Хотите зайти в магазин?</div>
               </>
             ) : (
               <div className="text-center">
@@ -81,24 +80,27 @@ export default function DiamondsModal({
             )}
 
             <div className="my-4">
-              <div className='flex items-center justify-center' style={{
-                width: 130,
-                height: 130,
-                backgroundImage: `url("/assets/diamonds/gold-frame.svg")`,
-                backgroundSize: "cover",
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-              }}>
-                <div style={{
-                width: 85,
-                height: 80,
-                backgroundImage: `url("/assets/diamonds/diamond.svg")`,
-                backgroundSize: "cover",
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-              }}>
-
-              </div>
+              <div
+                className="flex items-center justify-center"
+                style={{
+                  width: 130,
+                  height: 130,
+                  backgroundImage: `url("/assets/diamonds/gold-frame.svg")`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                }}
+              >
+                <div
+                  style={{
+                    width: 85,
+                    height: 80,
+                    backgroundImage: `url("/assets/diamonds/diamond.svg")`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                  }}
+                ></div>
               </div>
             </div>
 
@@ -109,7 +111,7 @@ export default function DiamondsModal({
                 width: 155,
                 height: 60,
                 backgroundImage: 'url("/assets/diamonds/next-btn.svg")',
-                backgroundSize: "cover",
+                backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
               }}
@@ -119,14 +121,14 @@ export default function DiamondsModal({
 
             {!isInsufficient && (
               <div
-                className='flex items-center gap-4 cursor-pointer'
+                className="flex items-center gap-4 cursor-pointer"
                 onClick={() => setDontAskAgain(!dontAskAgain)}
               >
                 <Image
                   width={30}
                   height={30}
                   src={`/assets/diamonds/dont-ask-btn-${dontAskAgain ? 'active' : 'inactive'}.svg`}
-                  alt=''
+                  alt=""
                 />
                 <p>Больше не спрашивать</p>
               </div>

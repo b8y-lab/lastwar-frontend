@@ -10,9 +10,7 @@ export default function QuestPlotModal() {
         <h1 className="text-2xl font-bold mb-4 text-white">Story Quests</h1>
         <QuestHeader />
 
-        <div
-          className="flex-1 w-full overflow-auto"
-        >
+        <div className="flex-1 w-full overflow-auto">
           <div className="flex flex-col justify-between items-center w-full">
             <div className="flex flex-row text-[16px] justify-around items-center w-full h-15 mt-5 mb-2">
               <b>Economic Campaign</b>

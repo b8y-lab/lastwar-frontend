@@ -10,9 +10,7 @@ export default function QuestRewardsModal() {
         <h1 className="text-2xl font-bold mb-4 text-white">Quest Rewards</h1>
         <QuestHeader />
 
-        <div
-          className="flex-1 w-full overflow-auto"
-        >
+        <div className="flex-1 w-full overflow-auto">
           <div className="flex flex-col items-center justify-start h-screen w-full">
             <div className="flex flex-row justify-around items-center w-full h-20 my-10">
               <button className="button w-20 h-20">Icon</button>

@@ -7,9 +7,7 @@ export default function HeroAllLayout({
 }) {
   return (
     <div className="flex flex-col items-center justify-start h-screen w-full bg-black">
-      <div className={`${CONTAINER_CLASS} w-full`}>
-        {children}
-      </div>
+      <div className={`${CONTAINER_CLASS} w-full`}>{children}</div>
     </div>
   );
 }

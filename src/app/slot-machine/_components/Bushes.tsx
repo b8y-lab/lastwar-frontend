@@ -4,7 +4,7 @@ export const Bushes = () => (
     style={{
       backgroundImage: 'url("/assets/slot-machine/bushes.svg")',
       backgroundSize: 'cover',
-      backgroundPosition: 'center'
+      backgroundPosition: 'center',
     }}
   />
 );

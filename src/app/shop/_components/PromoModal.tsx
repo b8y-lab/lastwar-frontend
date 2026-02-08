@@ -20,7 +20,12 @@ export default function PromoModal() {
   return (
     <>
       <button onClick={() => setIsOpen(true)} className="cursor-pointer">
-        <Image src="/assets/slot-machine/rewardbtn.svg" alt="" width={65} height={175} />
+        <Image
+          src="/assets/slot-machine/rewardbtn.svg"
+          alt=""
+          width={65}
+          height={175}
+        />
       </button>
 
       <Dialog

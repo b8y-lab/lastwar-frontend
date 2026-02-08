@@ -18,7 +18,7 @@ function ToggleButton({ isEnabled, onToggle }: ToggleButtonProps) {
         className="w-[117px] h-[50px] button flex items-center justify-center cursor-pointer"
         style={{
           backgroundImage: `url("/assets/settings/${isEnabled ? 'green-btn.svg' : 'gray-btn.svg'}")`,
-          backgroundSize: "cover",
+          backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }}
@@ -30,7 +30,7 @@ function ToggleButton({ isEnabled, onToggle }: ToggleButtonProps) {
         className="w-[117px] h-[50px] button flex items-center justify-center cursor-pointer"
         style={{
           backgroundImage: `url("/assets/settings/${!isEnabled ? 'green-btn.svg' : 'gray-btn.svg'}")`,
-          backgroundSize: "cover",
+          backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }}
@@ -58,21 +58,30 @@ export default function SettingsModal() {
         className="relative z-50"
       >
         <div className="fixed inset-0 flex items-center justify-center">
-          <DialogPanel className="w-[310px] h-[310px] relative p-3.5" 
-          style={{
-            backgroundImage: 'url("/assets/settings/settings-bg.svg")',
-            backgroundSize: "cover",
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}>
+          <DialogPanel
+            className="w-[310px] h-[310px] relative p-3.5"
+            style={{
+              backgroundImage: 'url("/assets/settings/settings-bg.svg")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+            }}
+          >
             <button
               onClick={() => setIsOpen(false)}
               className="absolute right-2 top-3 cursor-pointer"
             >
-              <Image width={40} height={40} src="/assets/settings/close-btn.svg" alt='' />
+              <Image
+                width={40}
+                height={40}
+                src="/assets/settings/close-btn.svg"
+                alt=""
+              />
             </button>
 
-            <DialogTitle className="text-[20px] text-center">Настройки</DialogTitle>
+            <DialogTitle className="text-[20px] text-center">
+              Настройки
+            </DialogTitle>
 
             <div className="flex flex-row items-center justify-around mt-6.5">
               Звуки

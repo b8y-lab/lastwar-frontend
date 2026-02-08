@@ -35,7 +35,9 @@ for (let i = mockHeroes.length + 1; i <= TOTAL_SLOTS; i++) {
 
 export default function Page() {
   const [isDiamondsModalOpen, setIsDiamondsModalOpen] = useState(true);
-  const [modalType, setModalType] = useState<'insufficient' | 'confirm'>('insufficient');
+  const [modalType, setModalType] = useState<'insufficient' | 'confirm'>(
+    'insufficient'
+  );
 
   const handleContinue = () => {
     setIsDiamondsModalOpen(false);
@@ -43,37 +45,42 @@ export default function Page() {
   };
 
   return (
-    <div className='w-full h-screen overflow-hidden' style={{
-          backgroundImage: 'url("/assets/heroes/parchment-bg.svg")',
-          backgroundSize: "160%",
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}>
-      <div className={`w-full ${CONTAINER_CLASS} aspect-[450/770] mt-[40px]`} style={{
+    <div
+      className="w-full h-screen overflow-hidden"
+      style={{
+        backgroundImage: 'url("/assets/heroes/parchment-bg.svg")',
+        backgroundSize: '160%',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <div
+        className={`w-full ${CONTAINER_CLASS} aspect-[450/770] mt-[40px]`}
+        style={{
           backgroundImage: 'url("/assets/heroes/bg.svg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-        }}>
+        }}
+      >
+        <TitleHeader title="Герои" />
 
-      <TitleHeader title="Герои" />
+        <div className="flex gap-[5px] items-center justify-center flex-wrap p-[10px] pt-[50px] pb-[50px]">
+          {allSlots.map((slot) => (
+            <HeroLink
+              key={slot.id}
+              id={slot.id}
+              url="/hero"
+              rating={slot.rating}
+              level={slot.level}
+              heroImage={slot.heroImage}
+              isEmpty={slot.isEmpty}
+              slotNumber={slot.slotNumber}
+            />
+          ))}
+        </div>
 
-      <div className="flex gap-[5px] items-center justify-center flex-wrap p-[10px] pt-[50px] pb-[50px]">
-        {allSlots.map((slot) => (
-          <HeroLink
-            key={slot.id}
-            id={slot.id}
-            url="/hero"
-            rating={slot.rating}
-            level={slot.level}
-            heroImage={slot.heroImage}
-            isEmpty={slot.isEmpty}
-            slotNumber={slot.slotNumber}
-          />
-        ))}
+        {/* <FooterNav /> */}
       </div>
-
-      {/* <FooterNav /> */}
-    </div>
     </div>
   );
 }

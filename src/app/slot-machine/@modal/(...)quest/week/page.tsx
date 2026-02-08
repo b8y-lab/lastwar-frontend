@@ -25,9 +25,7 @@ export default function QuestWeekModal() {
         <h1 className="text-2xl font-bold mb-4 text-white">Weekly Quests</h1>
         <QuestHeader />
 
-        <div
-          className="flex-1 w-full overflow-auto"
-        >
+        <div className="flex-1 w-full overflow-auto">
           {quests}
 
           <div className="flex flex-row justify-between items-center w-full h-20 pl-5 my-5">
