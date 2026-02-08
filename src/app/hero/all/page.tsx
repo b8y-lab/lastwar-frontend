@@ -6,6 +6,7 @@ import FooterNav from '@/components/FooterNav.tsx';
 import HeroLink from '@/app/hero/_components/HeroLink.tsx';
 import { CONTAINER_CLASS } from '@/constants/layout';
 import DiamondsModal from '@/components/DiamondsModal';
+import { HEROES_DATA } from '@/data/heroes';
 
 interface HeroSlot {
   id: string;
@@ -16,13 +17,14 @@ interface HeroSlot {
   slotNumber?: number;
 }
 
-const mockHeroes: HeroSlot[] = [
-  { id: '1', rating: 5, level: 25, heroImage: '/assets/heroes/dog.svg' },
-  { id: '2', rating: 4, level: 20, heroImage: '/assets/heroes/cat.svg' },
-  { id: '3', rating: 3, level: 15, heroImage: '/assets/heroes/duck.svg' },
-];
-
 const TOTAL_SLOTS = 9;
+
+const mockHeroes: HeroSlot[] = Object.values(HEROES_DATA).map((hero) => ({
+  id: hero.id,
+  rating: hero.rating,
+  level: hero.level,
+  heroImage: hero.heroImage,
+}));
 
 const allSlots: HeroSlot[] = [...mockHeroes];
 for (let i = mockHeroes.length + 1; i <= TOTAL_SLOTS; i++) {
@@ -34,16 +36,6 @@ for (let i = mockHeroes.length + 1; i <= TOTAL_SLOTS; i++) {
 }
 
 export default function Page() {
-  const [isDiamondsModalOpen, setIsDiamondsModalOpen] = useState(true);
-  const [modalType, setModalType] = useState<'insufficient' | 'confirm'>(
-    'insufficient'
-  );
-
-  const handleContinue = () => {
-    setIsDiamondsModalOpen(false);
-    console.log('Действие подтверждено');
-  };
-
   return (
     <div
       className="w-full h-screen overflow-hidden"

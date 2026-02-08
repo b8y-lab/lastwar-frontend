@@ -8,15 +8,30 @@ import ParamsModal from '@/app/hero/_components/ParamsModal.tsx';
 import HeroCard from '@/app/hero/_components/HeroCard.tsx';
 import { CONTAINER_CLASS } from '@/constants/layout';
 import Image from 'next/image';
+import { getHeroById } from '@/data/heroes';
 
 interface IProps {
   searchParams: Promise<{
-    hid?: number;
+    hid?: string;
   }>;
 }
 
 export default async function Page({ searchParams }: IProps) {
   const { hid } = await searchParams;
+  const hero = hid ? getHeroById(hid) : null;
+
+  if (!hero) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen w-full bg-black">
+        <div className={`w-full ${CONTAINER_CLASS} flex flex-col items-center`}>
+          <p className="text-white">Герой не найден</p>
+          <Link href="/hero/all" className="text-blue-500 mt-4">
+            Вернуться к списку героев
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center justify-start h-screen w-full bg-black">
@@ -41,17 +56,17 @@ export default async function Page({ searchParams }: IProps) {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          {'Hero #' + hid}
+          {hero.name || 'Hero #' + hid}
         </div>
 
         <div className="w-full flex flex-row items-start justify-between gap-3 px-4 pt-5">
           <div className="flex-1">
             <HeroCard
-              id={String(hid || 1)}
+              id={hero.id}
               url="/hero"
-              rating={5}
-              level={25}
-              heroImage="/assets/heroes/dog.svg"
+              rating={hero.rating}
+              level={hero.level}
+              heroImage={hero.heroImage}
             />
           </div>
 

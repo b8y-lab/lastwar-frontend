@@ -77,7 +77,7 @@ export default function HeroCard({
         }}
       >
         <div
-          className="mt-6 w-[80%] aspect-[100/120] mx-auto"
+          className="mt-15 w-[80%] aspect-[100/120] mx-auto"
           style={{
             backgroundImage: `url("${heroImage}")`,
             backgroundSize: 'cover',
