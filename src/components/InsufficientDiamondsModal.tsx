@@ -59,8 +59,16 @@ export default function InsufficientDiamondsModal({
             <button
               onClick={onContinue}
               className="cursor-pointer"
+              style={{
+                width: 155,
+                height: 60,
+                backgroundImage: 'url("/assets/diamonds/next-btn.svg")',
+                backgroundSize: "cover",
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
             >
-              <Image width={155} height={60} src="/assets/diamonds/next-btn.svg" alt="Продолжить" />
+              Продолжить
             </button>
 
             <div className='flex items-center gap-4 cursor-pointer'>

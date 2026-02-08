@@ -44,7 +44,7 @@ export default function DiamondsModal({
     >
       <div className="fixed inset-0 flex items-center justify-center">
         <DialogPanel
-          className="w-[310px] h-[410px] relative p-3.5 flex flex-col items-center justify-center"
+          className="w-[310px] h-[410px] relative p-3.5 flex flex-col"
           style={{
             backgroundImage: `url("${backgroundImage}")`,
             backgroundSize: "cover",
@@ -63,7 +63,7 @@ export default function DiamondsModal({
             {isInsufficient ? 'Недостаточно Алмазов' : 'Подтверждение'}
           </DialogTitle>
 
-          <div className="flex flex-col items-center gap-3">
+          <div className="flex flex-col items-center gap-3 mt-6">
             {isInsufficient ? (
               <>
                 <div className="text-center">
@@ -81,14 +81,40 @@ export default function DiamondsModal({
             )}
 
             <div className="my-4">
-              <Image width={130} height={130} src="/assets/diamonds/gold-frame.svg" alt="Алмаз" />
+              <div className='flex items-center justify-center' style={{
+                width: 130,
+                height: 130,
+                backgroundImage: `url("/assets/diamonds/gold-frame.svg")`,
+                backgroundSize: "cover",
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}>
+                <div style={{
+                width: 85,
+                height: 80,
+                backgroundImage: `url("/assets/diamonds/diamond.svg")`,
+                backgroundSize: "cover",
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}>
+
+              </div>
+              </div>
             </div>
 
             <button
-              onClick={handleContinue}
+              onClick={onContinue}
               className="cursor-pointer"
+              style={{
+                width: 155,
+                height: 60,
+                backgroundImage: 'url("/assets/diamonds/next-btn.svg")',
+                backgroundSize: "cover",
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
             >
-              <Image width={155} height={60} src="/assets/diamonds/next-btn.svg" alt="Продолжить" />
+              Продолжить
             </button>
 
             {!isInsufficient && (
