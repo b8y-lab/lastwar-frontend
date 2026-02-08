@@ -28,8 +28,8 @@ export default function HeroCard({
       stars.push(
         <span key={i}>
           <Image
-            width={11}
-            height={11}
+            width={16}
+            height={16}
             src="/assets/heroes/star.svg"
             alt="Star Rating"
             style={{ zIndex: 10 }}
@@ -93,7 +93,7 @@ export default function HeroCard({
             backgroundPosition: 'center',
           }}
         >
-          <div className="absolute bottom-[50px] left-[23%] flex gap-0.5 text-sm z-10">
+          <div className="absolute bottom-[51px] left-[23%] flex gap-0.5 text-sm z-10">
             {renderStars()}
           </div>
         </div>
