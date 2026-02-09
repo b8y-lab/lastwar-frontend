@@ -2,6 +2,7 @@
 
 import { ReactNode } from 'react';
 import { MODAL_CLASS } from '@/constants/layout';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 interface QuestModalProps {
   children: ReactNode;
@@ -25,11 +26,7 @@ export const QuestModal = ({ children, onClose }: QuestModalProps) => {
       <div
         className={`relative ${MODAL_CLASS} max-w-full h-[840px] overflow-auto`}
         onClick={(e) => e.stopPropagation()}
-        style={{
-          backgroundImage: 'url("/assets/quests/window.svg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        style={createBackgroundStyle(BG_IMAGES.QUEST_WINDOW)}
       >
         <button
           onClick={handleClose}

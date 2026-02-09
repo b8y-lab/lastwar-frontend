@@ -2,6 +2,7 @@
 
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import Image from 'next/image';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 interface InsufficientDiamondsModalProps {
   isOpen: boolean;
@@ -21,12 +22,7 @@ export default function InsufficientDiamondsModal({
       <div className="fixed inset-0 flex items-center justify-center">
         <DialogPanel
           className="w-[310px] h-[410px] relative p-3.5 flex flex-col items-center justify-center"
-          style={{
-            backgroundImage: 'url("/assets/diamonds/insuff-diamonds-bg.svg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
+          style={createBackgroundStyle(BG_IMAGES.DIAMONDS_INSUFF_BG)}
         >
           <button
             onClick={onClose}
@@ -64,12 +60,9 @@ export default function InsufficientDiamondsModal({
               onClick={onContinue}
               className="cursor-pointer"
               style={{
+                ...createBackgroundStyle(BG_IMAGES.DIAMONDS_NEXT_BTN),
                 width: 155,
                 height: 60,
-                backgroundImage: 'url("/assets/diamonds/next-btn.svg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
               }}
             >
               Продолжить

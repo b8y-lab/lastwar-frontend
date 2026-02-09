@@ -1,11 +1,10 @@
 import { motion, type MotionStyle, type Transition } from 'framer-motion';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 const GENERATOR_STYLE: MotionStyle = {
   width: 130,
   height: 120,
-  backgroundImage: 'url("/assets/slot/generator.png")',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
+  ...createBackgroundStyle(BG_IMAGES.SLOT_GENERATOR),
 };
 
 const GENERATOR_TRANSITION: Transition = {

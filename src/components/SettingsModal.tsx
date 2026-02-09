@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import { Cog6ToothIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 interface ToggleButtonProps {
   isEnabled: boolean;
@@ -16,24 +17,18 @@ function ToggleButton({ isEnabled, onToggle }: ToggleButtonProps) {
       <button
         onClick={() => !isEnabled && onToggle()}
         className="w-[117px] h-[50px] button flex items-center justify-center cursor-pointer"
-        style={{
-          backgroundImage: `url("/assets/settings/${isEnabled ? 'green-btn.svg' : 'gray-btn.svg'}")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
+        style={createBackgroundStyle(
+          isEnabled ? BG_IMAGES.SETTINGS_GREEN_BTN : BG_IMAGES.SETTINGS_GRAY_BTN
+        )}
       >
         Вкл
       </button>
       <button
         onClick={() => isEnabled && onToggle()}
         className="w-[117px] h-[50px] button flex items-center justify-center cursor-pointer"
-        style={{
-          backgroundImage: `url("/assets/settings/${!isEnabled ? 'green-btn.svg' : 'gray-btn.svg'}")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
+        style={createBackgroundStyle(
+          !isEnabled ? BG_IMAGES.SETTINGS_GREEN_BTN : BG_IMAGES.SETTINGS_GRAY_BTN
+        )}
       >
         Выкл
       </button>
@@ -42,7 +37,7 @@ function ToggleButton({ isEnabled, onToggle }: ToggleButtonProps) {
 }
 
 export default function SettingsModal() {
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [musicEnabled, setMusicEnabled] = useState(true);
 
@@ -60,12 +55,7 @@ export default function SettingsModal() {
         <div className="fixed inset-0 flex items-center justify-center">
           <DialogPanel
             className="w-[310px] h-[310px] relative p-3.5"
-            style={{
-              backgroundImage: 'url("/assets/settings/settings-bg.svg")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-            }}
+            style={createBackgroundStyle(BG_IMAGES.SETTINGS_BG)}
           >
             <button
               onClick={() => setIsOpen(false)}

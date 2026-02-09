@@ -8,6 +8,9 @@ import {
   getResultBySymbols,
   RewardResult,
 } from '@/utils/slot/symbols.ts';
+import { SpinResponse } from '@/types/api';
+import { ROUTES } from '@/constants/routes';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 import { Reward } from '@/app/slot-machine/_components/Reward.tsx';
 import { Bushes } from '@/app/slot-machine/_components/Bushes.tsx';
 import { SlotReels } from '@/app/slot-machine/_components/SlotReels.tsx';
@@ -27,20 +30,20 @@ export default function SlotMachinePage() {
     getSpins();
   }, []);
 
-  const getSpins = async () => {
+  const getSpins = async (): Promise<void> => {
     const response = await fetch('/api/spin');
-    const data = await response.json();
+    const data: SpinResponse = await response.json();
 
     if (response.ok) setSpins(data.spins);
   };
 
-  const updateSpins = async () => {
+  const updateSpins = async (): Promise<void> => {
     const response = await fetch('/api/spin', {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ spins: spins - 1 }),
       method: 'POST',
     });
-    const data = await response.json();
+    const data: SpinResponse = await response.json();
 
     if (response.ok) setSpins(data.spins);
   };
@@ -58,12 +61,12 @@ export default function SlotMachinePage() {
       }
 
       if (result.type === 'fight') {
-        router.push('/foe/attack');
+        router.push(ROUTES.FOE_ATTACK);
         return;
       }
 
       if (result.type === 'heist') {
-        router.push('/foe/heist');
+        router.push(ROUTES.FOE_HEIST);
         return;
       }
     }, 1000);
@@ -92,19 +95,11 @@ export default function SlotMachinePage() {
     <div className="relative flex flex-col items-center justify-center z-2 w-full">
       <div
         className="flex flex-col justify-start items-center w-full max-w-[410px] h-[470px]"
-        style={{
-          backgroundImage: 'url("/assets/slot-machine/slotmachine.svg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        style={createBackgroundStyle(BG_IMAGES.SLOT_MACHINE)}
       >
         <div
           className="absolute top-16 left-0 right-0 h-[84px] mx-auto max-w-[320px]"
-          style={{
-            backgroundImage: 'url("/assets/slot-machine/snowonroof.svg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
+          style={createBackgroundStyle(BG_IMAGES.SLOT_SNOW_ON_ROOF)}
         ></div>
         <SmokeAnimation />
         <SlotReels reels={reels} rolling={rolling} />

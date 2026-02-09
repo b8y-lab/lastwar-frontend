@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 export default function CarParamModal({ id }: { id: number }) {
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -13,12 +14,7 @@ export default function CarParamModal({ id }: { id: number }) {
         onClick={() => setIsOpen(true)}
         className="button w-[80px] h-[80px] flex items-center justify-around"
         disabled
-        style={{
-          backgroundImage: 'url("/assets/heroes/hero/equip-item-bg.svg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
+        style={createBackgroundStyle(BG_IMAGES.HERO_EQUIP_ITEM_BG)}
       >
         CarParam
       </button>

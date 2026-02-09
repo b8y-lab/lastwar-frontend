@@ -2,6 +2,7 @@
 
 import { QuestModal } from '@/app/slot-machine/_components/QuestModal.tsx';
 import QuestHeader from '@/app/quest/_components/QuestHeader.tsx';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 export default function QuestDayModal() {
   const quests = [...Array(8)].map((_, i) => {
@@ -23,11 +24,7 @@ export default function QuestDayModal() {
         <div className="relative" style={{ width: 100, height: 28 }}>
           <div
             className="absolute inset-0"
-            style={{
-              backgroundImage: 'url("/assets/quests/emptybar.svg")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
+            style={createBackgroundStyle(BG_IMAGES.QUEST_EMPTY_BAR)}
           />
           <div
             className="absolute inset-0 overflow-hidden"
@@ -35,11 +32,9 @@ export default function QuestDayModal() {
           >
             <div
               style={{
+                ...createBackgroundStyle(BG_IMAGES.QUEST_FILLED_BAR),
                 width: 100,
                 height: 28,
-                backgroundImage: 'url("/assets/quests/filledbar.svg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
               }}
             />
           </div>
@@ -49,19 +44,11 @@ export default function QuestDayModal() {
         </div>
         <span
           className="w-[30px] h-[28px] flex items-center justify-center"
-          style={{
-            backgroundImage: 'url("/assets/quests/token.svg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
+          style={createBackgroundStyle(BG_IMAGES.QUEST_TOKEN)}
         ></span>
         <button
           className="button w-[60px] h-[32px] cursor-pointer flex items-center justify-center"
-          style={{
-            backgroundImage: 'url("/assets/quests/takegreenbtn.svg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
+          style={createBackgroundStyle(BG_IMAGES.QUEST_TAKE_GREEN_BTN)}
         >
           Забрать
         </button>

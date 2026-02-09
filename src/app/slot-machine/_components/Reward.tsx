@@ -4,6 +4,7 @@ interface RewardModalProps {
 }
 
 import { motion } from 'framer-motion';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 export const Reward = ({ rewardType, onClose }: RewardModalProps) => {
   return (
@@ -18,11 +19,7 @@ export const Reward = ({ rewardType, onClose }: RewardModalProps) => {
         <div className="w-[400px] h-[400px] relative">
           <motion.div
             className="absolute inset-0"
-            style={{
-              backgroundImage: 'url("/assets/slot/reward/reward-effect.png")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
+            style={createBackgroundStyle(BG_IMAGES.SLOT_REWARD_EFFECT)}
             animate={{ rotate: 360 }}
             transition={{
               repeat: Infinity,
@@ -38,11 +35,7 @@ export const Reward = ({ rewardType, onClose }: RewardModalProps) => {
       -translate-x-1/2 -translate-y-1/2
       z-10
     "
-            style={{
-              backgroundImage: 'url("/assets/slot/reward/chest.png")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
+            style={createBackgroundStyle(BG_IMAGES.SLOT_REWARD_CHEST)}
           />
         </div>
 
@@ -54,9 +47,7 @@ export const Reward = ({ rewardType, onClose }: RewardModalProps) => {
             className="w-[325px] h-[109px] button text-white text-[30px]"
             onClick={onClose}
             style={{
-              backgroundImage: 'url("/assets/slot/reward/rewardButton.png")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              ...createBackgroundStyle(BG_IMAGES.SLOT_REWARD_BUTTON),
               WebkitTextStroke: '1px black',
             }}
           >

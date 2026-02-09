@@ -1,9 +1,5 @@
-import App from '@/App.tsx';
+import { redirect } from 'next/navigation';
 
-export default async function MainPage() {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <App />
-    </div>
-  );
+export default function RootPage() {
+  redirect('/slot-machine');
 }

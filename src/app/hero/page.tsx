@@ -9,6 +9,7 @@ import HeroCard from '@/app/hero/_components/HeroCard.tsx';
 import { CONTAINER_CLASS } from '@/constants/layout';
 import Image from 'next/image';
 import { getHeroById } from '@/data/heroes';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 interface IProps {
   searchParams: Promise<{
@@ -38,10 +39,8 @@ export default async function Page({ searchParams }: IProps) {
       <div
         className={`w-full ${CONTAINER_CLASS} flex flex-col items-center h-screen pt-5`}
         style={{
-          backgroundImage: 'url("/assets/heroes/parchment-bg.svg")',
+          ...createBackgroundStyle(BG_IMAGES.HERO_PARCHMENT_BG),
           backgroundSize: '175%',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
         }}
       >
         {/* <UserHeader /> */}
@@ -49,12 +48,7 @@ export default async function Page({ searchParams }: IProps) {
 
         <div
           className="w-[255px] h-[50px] flex items-center justify-center"
-          style={{
-            backgroundImage: 'url("/assets/heroes/hero/namebar.svg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
+          style={createBackgroundStyle(BG_IMAGES.HERO_NAMEBAR)}
         >
           {hero.name || 'Hero #' + hid}
         </div>
@@ -72,22 +66,12 @@ export default async function Page({ searchParams }: IProps) {
 
           <div
             className="flex-1 h-84 items-center flex flex-col p-3"
-            style={{
-              backgroundImage: 'url("/assets/heroes/hero/equip-bg.svg")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-            }}
+            style={createBackgroundStyle(BG_IMAGES.HERO_EQUIP_BG)}
           >
             <Link
               href="/hero/cars"
               className="button w-[95%] h-17 items-end flex flex-col justify-around mt-10"
-              style={{
-                backgroundImage: 'url("/assets/heroes/hero/cart-btn.svg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-              }}
+              style={createBackgroundStyle(BG_IMAGES.HERO_CART_BTN)}
             >
               <span className="p-3 pr-5">
                 Телега <br /> 16УР
@@ -112,12 +96,7 @@ export default async function Page({ searchParams }: IProps) {
         <div className="w-full flex flex-row items-start justify-center gap-2 mt-3">
           <div
             className="w-[200px] h-[200px] flex flex-col items-center gap-2 justify-center"
-            style={{
-              backgroundImage: 'url("/assets/heroes/hero/uprank-bg.svg")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-            }}
+            style={createBackgroundStyle(BG_IMAGES.HERO_UPRANK_BG)}
           >
             <div className="w-full flex flex-col gap-1">
               <div className="flex items-center justify-center gap-3">
@@ -141,12 +120,7 @@ export default async function Page({ searchParams }: IProps) {
             </div>
             <button
               className="w-[135px] h-[53px] cursor-pointer"
-              style={{
-                backgroundImage: 'url("/assets/heroes/hero/uprank-btn.svg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-              }}
+              style={createBackgroundStyle(BG_IMAGES.HERO_UPRANK_BTN)}
             >
               Повысить ур/ранг
             </button>
@@ -154,12 +128,7 @@ export default async function Page({ searchParams }: IProps) {
 
           <div
             className="w-[240px] h-[290px]"
-            style={{
-              backgroundImage: 'url("/assets/heroes/hero/skill-bg.svg")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-            }}
+            style={createBackgroundStyle(BG_IMAGES.HERO_SKILL_BG)}
           >
             <h3 className="text-center pt-5">Умение</h3>
             <p className="text-center pt-10">Описание умения</p>
@@ -168,21 +137,11 @@ export default async function Page({ searchParams }: IProps) {
 
         <div
           className="h-[180px] w-[445px] -mt-20 relative"
-          style={{
-            backgroundImage: 'url("/assets/heroes/hero/params-bg.svg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
+          style={createBackgroundStyle(BG_IMAGES.HERO_PARAMS_BG)}
         >
           <button
             className="h-[60px] w-[70px] absolute right-3 bottom-3 cursor-pointer"
-            style={{
-              backgroundImage: 'url("/assets/heroes/hero/expand-btn.svg")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-            }}
+            style={createBackgroundStyle(BG_IMAGES.HERO_EXPAND_BTN)}
           ></button>
           <h3 className="text-center absolute bottom-8 left-1/3">
             Параметры героя
@@ -192,13 +151,7 @@ export default async function Page({ searchParams }: IProps) {
             <div className="flex flex-col items-center">
               <div
                 className="flex items-center justify-center w-[50px] h-[50px]"
-                style={{
-                  backgroundImage:
-                    'url("/assets/heroes/hero/param-item-bg.svg")',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                }}
+                style={createBackgroundStyle(BG_IMAGES.HERO_PARAM_ITEM_BG)}
               >
                 <Image
                   width={35}
@@ -212,13 +165,7 @@ export default async function Page({ searchParams }: IProps) {
             <div className="flex flex-col items-center">
               <div
                 className="flex items-center justify-center w-[50px] h-[50px]"
-                style={{
-                  backgroundImage:
-                    'url("/assets/heroes/hero/param-item-bg.svg")',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                }}
+                style={createBackgroundStyle(BG_IMAGES.HERO_PARAM_ITEM_BG)}
               >
                 <Image
                   width={35}
@@ -232,13 +179,7 @@ export default async function Page({ searchParams }: IProps) {
             <div className="flex flex-col items-center">
               <div
                 className="flex items-center justify-center w-[50px] h-[50px]"
-                style={{
-                  backgroundImage:
-                    'url("/assets/heroes/hero/param-item-bg.svg")',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                }}
+                style={createBackgroundStyle(BG_IMAGES.HERO_PARAM_ITEM_BG)}
               >
                 <Image
                   width={35}
