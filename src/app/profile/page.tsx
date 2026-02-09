@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-start h-screen w-full">
+    <div className="flex flex-col items-center justify-start h-screen w-full bg-black">
       <UserHeader />
       <TitleHeader title="Profile" />
 

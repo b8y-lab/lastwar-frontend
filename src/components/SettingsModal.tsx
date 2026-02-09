@@ -27,7 +27,9 @@ function ToggleButton({ isEnabled, onToggle }: ToggleButtonProps) {
         onClick={() => isEnabled && onToggle()}
         className="w-[117px] h-[50px] button flex items-center justify-center cursor-pointer"
         style={createBackgroundStyle(
-          !isEnabled ? BG_IMAGES.SETTINGS_GREEN_BTN : BG_IMAGES.SETTINGS_GRAY_BTN
+          !isEnabled
+            ? BG_IMAGES.SETTINGS_GREEN_BTN
+            : BG_IMAGES.SETTINGS_GRAY_BTN
         )}
       >
         Выкл

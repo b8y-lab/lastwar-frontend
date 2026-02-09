@@ -12,10 +12,10 @@ const config: Config = {
         'active-yellow': '#ffac00',
       },
       maxWidth: {
-        'container': '460px',
+        container: '460px',
       },
       width: {
-        'modal': '400px',
+        modal: '400px',
       },
     },
   },

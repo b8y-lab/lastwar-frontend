@@ -14,7 +14,10 @@ export default function QuestHeader() {
   };
 
   const getBackgroundStyle = (path: string) => {
-    const image = path === pathname ? BG_IMAGES.QUEST_NAV_BTN_ACTIVE : BG_IMAGES.QUEST_NAV_BTN;
+    const image =
+      path === pathname
+        ? BG_IMAGES.QUEST_NAV_BTN_ACTIVE
+        : BG_IMAGES.QUEST_NAV_BTN;
     return createBackgroundStyle(image);
   };
 
