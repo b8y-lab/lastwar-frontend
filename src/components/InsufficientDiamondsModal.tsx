@@ -3,6 +3,7 @@
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import Image from 'next/image';
 import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
+import { CloseButton } from './ui/CloseButton';
 
 interface InsufficientDiamondsModalProps {
   isOpen: boolean;
@@ -24,17 +25,7 @@ export default function InsufficientDiamondsModal({
           className="w-[310px] h-[410px] relative p-3.5 flex flex-col items-center justify-center"
           style={createBackgroundStyle(BG_IMAGES.DIAMONDS_INSUFF_BG)}
         >
-          <button
-            onClick={onClose}
-            className="absolute right-2 top-3 cursor-pointer"
-          >
-            <Image
-              width={40}
-              height={40}
-              src="/assets/settings/close-btn.svg"
-              alt=""
-            />
-          </button>
+          <CloseButton onClick={onClose} />
 
           <DialogTitle className="text-[20px] text-center font-bold">
             Недостаточно Алмазов

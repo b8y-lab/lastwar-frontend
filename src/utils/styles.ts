@@ -82,6 +82,11 @@ export const BG_IMAGES = {
   DIAMONDS_GOLD_FRAME: '/assets/diamonds/gold-frame.svg',
   DIAMONDS_DIAMOND: '/assets/diamonds/diamond.svg',
 
+  // Profile
+  PROFILE_BG: '/assets/profile/profile-bg.svg',
+  PROFILE_AVATAR_FRAME: '/assets/profile/avatar-frame.svg',
+  PROFILE_RATING_FRAME: '/assets/profile/rating-frame.svg',
+
   // Errors
   ERROR_BG: '/assets/errors/error-bg.svg',
 } as const;
