@@ -84,8 +84,15 @@ export const BG_IMAGES = {
 
   // Profile
   PROFILE_BG: '/assets/profile/profile-bg.svg',
-  PROFILE_AVATAR_FRAME: '/assets/profile/avatar-frame.svg',
+  PROFILE_AVATAR: '/assets/profile/avatar.svg',
   PROFILE_RATING_FRAME: '/assets/profile/rating-frame.svg',
+  PROFILE_NICKNAME_BG: '/assets/profile/nickname-bg.svg',
+  PROFILE_RATING_PLATE: '/assets/profile/rating-plate.svg',
+  PROFILE_CHANGE_NAME_BTN: '/assets/profile/change-nickname-btn.svg',
+  PROFILE_CONNECT_WALLET_BTN: '/assets/profile/tg-wallet-btn.svg',
+  PROFILE_REF_SYSTEM_BG: '/assets/profile/ref-system-bg.svg',
+  PROFILE_INVITE_PLATE: '/assets/profile/invite-plate.svg',
+  PROFILE_INVITE_BTN: '/assets/profile/invite-btn.svg',
 
   // Errors
   ERROR_BG: '/assets/errors/error-bg.svg',
