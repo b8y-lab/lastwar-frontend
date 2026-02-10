@@ -67,11 +67,7 @@ export default function QuestDayModal() {
           <span>До конца сезона осталось 36 дней</span>
           <button
             className="button w-30 h-15 cursor-pointer"
-            style={{
-              backgroundImage: 'url("/assets/quests/takegreenbtn.svg")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
+            style={createBackgroundStyle(BG_IMAGES.QUEST_TAKE_GREEN_BTN)}
           >
             Забрать все
           </button>
