@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const cloudImages = [
   '/assets/slot/cloud1.png',
@@ -10,16 +10,20 @@ const cloudImages = [
 ];
 
 const CLOUD_WIDTH = 200;
-const CONTAINER_WIDTH = 500;
 
 function random(min: number, max: number) {
   return Math.random() * (max - min) + min;
 }
 
 export default function CloudsLayer() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const [clouds, setClouds] = useState<any[]>([]);
+  const [containerWidth, setContainerWidth] = useState(500);
 
   useEffect(() => {
+    if (containerRef.current) {
+      setContainerWidth(containerRef.current.offsetWidth);
+    }
     setClouds(Array.from({ length: 6 }).map((_, i) => createCloud(i)));
   }, []);
 
@@ -35,13 +39,13 @@ export default function CloudsLayer() {
   }
 
   return (
-    <div className="absolute top-0 w-full h-[250px] overflow-hidden pointer-events-none z-0">
+    <div ref={containerRef} className="absolute top-0 w-full h-[250px] overflow-hidden pointer-events-none z-0">
       {clouds.map((cloud) => {
         const fromX =
-          cloud.direction === 1 ? -CLOUD_WIDTH : CONTAINER_WIDTH + CLOUD_WIDTH;
+          cloud.direction === 1 ? -CLOUD_WIDTH : containerWidth + CLOUD_WIDTH;
 
         const toX =
-          cloud.direction === 1 ? CONTAINER_WIDTH + CLOUD_WIDTH : -CLOUD_WIDTH;
+          cloud.direction === 1 ? containerWidth + CLOUD_WIDTH : -CLOUD_WIDTH;
 
         return (
           <motion.img

@@ -1,6 +1,6 @@
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-start h-screen w-full">
+    <div className="flex flex-col items-center justify-start min-h-dvh w-full">
       <div className="w-full h-10 text-center leading-10 border-1 mt-5">
         Diamonds
       </div>

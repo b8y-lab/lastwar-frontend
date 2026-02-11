@@ -6,7 +6,7 @@ export const GeneratorVideo = () => (
       muted
       playsInline
       preload="auto"
-      className="w-[420px] h-auto pointer-events-none"
+      className="w-full max-w-[420px] h-auto pointer-events-none"
     >
       <source src="/assets/slot-machine/generator.webm" type="video/webm" />
     </video>

@@ -23,8 +23,8 @@ export default async function Page({ searchParams }: IProps) {
 
   if (!hero) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen w-full bg-black">
-        <div className={`w-full ${CONTAINER_CLASS} flex flex-col items-center`}>
+      <div className="flex flex-col items-center justify-center min-h-dvh w-full bg-black">
+        <div className={`${CONTAINER_CLASS} flex flex-col items-center`}>
           <p className="text-white">Герой не найден</p>
           <Link href="/hero/all" className="text-blue-500 mt-4">
             Вернуться к списку героев
@@ -35,9 +35,9 @@ export default async function Page({ searchParams }: IProps) {
   }
 
   return (
-    <div className="flex flex-col items-center justify-start h-screen w-full bg-black">
+    <div className="flex flex-col items-center justify-start min-h-dvh w-full bg-black">
       <div
-        className={`w-full ${CONTAINER_CLASS} flex flex-col items-center h-screen pt-5`}
+        className={`${CONTAINER_CLASS} flex flex-col items-center min-h-dvh pt-5`}
         style={{
           ...createBackgroundStyle(BG_IMAGES.HERO_PARCHMENT_BG),
           backgroundSize: '175%',
@@ -47,7 +47,7 @@ export default async function Page({ searchParams }: IProps) {
         {/* <TitleHeader title={'Hero #' + hid} /> */}
 
         <div
-          className="w-[255px] h-[50px] flex items-center justify-center"
+          className="w-full max-w-[255px] h-[50px] flex items-center justify-center"
           style={createBackgroundStyle(BG_IMAGES.HERO_NAMEBAR)}
         >
           {hero.name || 'Hero #' + hid}
@@ -136,7 +136,7 @@ export default async function Page({ searchParams }: IProps) {
         </div>
 
         <div
-          className="h-[180px] w-[445px] -mt-20 relative"
+          className="h-[180px] w-full max-w-[445px] -mt-20 relative"
           style={createBackgroundStyle(BG_IMAGES.HERO_PARAMS_BG)}
         >
           <button

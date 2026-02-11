@@ -39,14 +39,14 @@ for (let i = mockHeroes.length + 1; i <= TOTAL_SLOTS; i++) {
 export default function Page() {
   return (
     <div
-      className="w-full h-screen overflow-hidden"
+      className="w-full min-h-dvh overflow-hidden"
       style={{
         ...createBackgroundStyle(BG_IMAGES.HERO_PARCHMENT_BG),
         backgroundSize: '160%',
       }}
     >
       <div
-        className={`w-full ${CONTAINER_CLASS} aspect-[450/770] mt-[40px]`}
+        className={`${CONTAINER_CLASS} aspect-[450/770] mt-[40px]`}
         style={createBackgroundStyle(BG_IMAGES.HERO_BG)}
       >
         <TitleHeader title="Герои" />

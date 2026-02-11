@@ -6,7 +6,7 @@ import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 export default function Page() {
   return (
     <div
-      className={`flex flex-col items-center justify-start ${CONTAINER_CLASS} h-screen mx-auto w-full px-4`}
+      className={`flex flex-col items-center justify-start ${CONTAINER_CLASS} min-h-dvh px-4`}
       style={createBackgroundStyle(BG_IMAGES.ATTACK_BG)}
     >
       <FoeHeader />

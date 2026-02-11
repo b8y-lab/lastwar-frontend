@@ -13,12 +13,12 @@ export default function SlotMachineLayout({
 }) {
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-screen overflow-x-hidden pb-10"
+      className="flex flex-col items-center justify-center min-h-dvh overflow-x-hidden pb-10"
       style={createBackgroundStyle(BG_IMAGES.SLOT_BG)}
     >
       <div id="slot-machine-page" className="flex flex-col relative">
         <CloudsLayer />
-        <div className={`${CONTAINER_CLASS} w-full px-4`}>
+        <div className={`${CONTAINER_CLASS} px-4`}>
           <div className="mt-20">
             <div className="absolute top-35 left-5 z-3">
               <QuestSideNav />

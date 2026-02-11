@@ -56,7 +56,7 @@ export default function SettingsModal() {
       >
         <div className="fixed inset-0 flex items-center justify-center">
           <DialogPanel
-            className="w-[310px] h-[310px] relative p-3.5"
+            className="w-full max-w-[310px] h-[310px] max-h-[90dvh] overflow-y-auto relative p-3.5"
             style={createBackgroundStyle(BG_IMAGES.SETTINGS_BG)}
           >
             <button

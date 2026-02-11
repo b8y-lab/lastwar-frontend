@@ -1,10 +1,10 @@
+import { motion } from 'framer-motion';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
+
 interface RewardModalProps {
   rewardType: string;
   onClose: () => void;
 }
-
-import { motion } from 'framer-motion';
-import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 export const Reward = ({ rewardType, onClose }: RewardModalProps) => {
   return (
@@ -15,8 +15,8 @@ export const Reward = ({ rewardType, onClose }: RewardModalProps) => {
         onClose();
       }}
     >
-      <div className="flex flex-col">
-        <div className="w-[400px] h-[400px] relative">
+      <div className="flex flex-col items-center px-4">
+        <div className="w-full max-w-[400px] aspect-square relative">
           <motion.div
             className="absolute inset-0"
             style={createBackgroundStyle(BG_IMAGES.SLOT_REWARD_EFFECT)}
@@ -39,12 +39,11 @@ export const Reward = ({ rewardType, onClose }: RewardModalProps) => {
           />
         </div>
 
-        <div className="p-6 rounded-xl  text-center">
-          <h2 className="text-xl font-bold mb-4"></h2>
+        <div className="p-6 rounded-xl text-center">
           <p>You received: {rewardType}</p>
 
           <button
-            className="w-[325px] h-[109px] button text-white text-[30px]"
+            className="w-full max-w-[325px] aspect-[325/109] button text-white text-[clamp(20px,6vw,30px)]"
             onClick={onClose}
             style={{
               ...createBackgroundStyle(BG_IMAGES.SLOT_REWARD_BUTTON),

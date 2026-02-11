@@ -11,12 +11,6 @@ const config: Config = {
       colors: {
         'active-yellow': '#ffac00',
       },
-      maxWidth: {
-        container: '460px',
-      },
-      width: {
-        modal: '400px',
-      },
     },
   },
   plugins: [

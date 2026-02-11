@@ -22,7 +22,7 @@ export default function FooterNav() {
     <div className="w-full bottom-0">
       <div className="w-full bottom-0 h-20"></div>
 
-      <div className="fixed w-full flex flex-row items-center justify-around h-20 bottom-0 border-t-1 mt-10 bg-black">
+      <div className="fixed w-full flex flex-row items-center justify-around h-20 bottom-0 border-t-1 mt-10 bg-black pb-[env(safe-area-inset-bottom)]">
         <Link href={ROUTES.BASE} className={getClassName('/base')}>
           Base
         </Link>

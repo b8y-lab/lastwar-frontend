@@ -23,7 +23,7 @@ export default function BaseModal({
 }: BaseModalProps) {
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
-      <div className="fixed inset-0 flex w-screen items-center justify-center">
+      <div className="fixed inset-0 flex w-full items-center justify-center px-4">
         <DialogPanel
           className={`w-full flex flex-col items-center space-y-4 border bg-black p-5 relative pb-10 ${className}`}
         >

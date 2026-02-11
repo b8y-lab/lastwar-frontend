@@ -1,6 +1,6 @@
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-start h-screen w-full">
+    <div className="flex flex-col items-center justify-start min-h-dvh w-full">
       <div className="w-full flex flex-row items-center justify-between py-5">
         <button className="button w-1/2 h-10 inline-block">
           Health Points 20/50

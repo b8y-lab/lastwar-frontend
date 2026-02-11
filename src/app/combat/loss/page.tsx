@@ -2,7 +2,7 @@ import TitleHeader from '@/components/TitleHeader.tsx';
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-start h-screen w-full">
+    <div className="flex flex-col items-center justify-start min-h-dvh w-full">
       <TitleHeader title="Defeat" />
 
       <div className="w-full flex flex-row items-center justify-center py-15">

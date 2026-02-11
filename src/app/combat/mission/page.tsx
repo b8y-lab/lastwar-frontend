@@ -17,7 +17,7 @@ export default async function Page({ searchParams }: IMissionProps) {
   const { mid, hid, fid } = await searchParams;
 
   return (
-    <div className="flex flex-col items-center justify-start h-screen w-full">
+    <div className="flex flex-col items-center justify-start min-h-dvh w-full">
       <TitleHeader title={'Mission #' + mid} />
 
       <div className="w-full flex flex-row items-center justify-around pt-5">

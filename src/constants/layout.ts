@@ -1,14 +1,10 @@
 /**
  * Layout constants for Telegram Mini App
- * Optimized for mobile viewport (360-420px)
+ * Game assets designed for ~450px width — centered on larger screens
  */
 
-// NOTE: maximum container width for all pages
-export const MAX_CONTAINER_WIDTH = '460px';
+// NOTE: w-full prevents overflow on small screens, max-w caps it, mx-auto centers
+export const CONTAINER_CLASS = 'w-full max-w-[460px] mx-auto';
 
-// NOTE: tailwind class for max container width
-export const CONTAINER_CLASS = 'max-w-[460px]';
-
-// NOTE: modal width (slightly smaller than container for padding)
-export const MODAL_WIDTH = '400px';
-export const MODAL_CLASS = 'w-[400px]';
+// NOTE: modal fills width on small screens, capped at 400px
+export const MODAL_CLASS = 'w-full max-w-[400px]';

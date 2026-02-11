@@ -41,7 +41,7 @@ export default function RewardModal({
         onClose={() => setIsOpen(false)}
         className="relative z-50"
       >
-        <div className="fixed inset-0 flex w-screen items-center justify-center p-5">
+        <div className="fixed inset-0 flex w-full items-center justify-center p-5">
           <DialogPanel className="w-full flex flex-col items-center space-y-4 border bg-black p-5 relative pb-10">
             <button
               onClick={() => setIsOpen(false)}

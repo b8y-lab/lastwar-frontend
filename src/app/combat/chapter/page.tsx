@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-start h-screen w-full">
+    <div className="flex flex-col items-center justify-start min-h-dvh w-full">
       <TitleHeader title="Chapter #1" />
 
       <div className="w-full flex flex-row items-center justify-center py-5">

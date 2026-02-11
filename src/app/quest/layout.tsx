@@ -15,7 +15,7 @@ export default async function QuestLayout({
 
   return (
     <div
-      className={`flex flex-col items-center justify-start h-screen ${CONTAINER_CLASS} mx-auto w-full px-4`}
+      className={`flex flex-col items-center justify-start min-h-dvh ${CONTAINER_CLASS} px-4`}
       style={createBackgroundStyle(BG_IMAGES.QUEST_BG)}
     >
       <TitleHeader title="Weekly Quests" back={referer} />
@@ -23,7 +23,7 @@ export default async function QuestLayout({
 
       {/* TODO: Переделать фон */}
       <div
-        className={`h-screen ${CONTAINER_CLASS} w-full`}
+        className={`flex-1 ${CONTAINER_CLASS}`}
         style={createBackgroundStyle(BG_IMAGES.QUEST_LIST_BG)}
       >
         {children}

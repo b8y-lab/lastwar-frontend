@@ -22,7 +22,7 @@ export default function InsufficientDiamondsModal({
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
       <div className="fixed inset-0 flex items-center justify-center">
         <DialogPanel
-          className="w-[310px] h-[410px] relative p-3.5 flex flex-col items-center justify-center"
+          className="w-full max-w-[310px] h-[410px] max-h-[90dvh] overflow-y-auto relative p-3.5 flex flex-col items-center justify-center"
           style={createBackgroundStyle(BG_IMAGES.DIAMONDS_INSUFF_BG)}
         >
           <CloseButton onClick={onClose} />
