@@ -21,11 +21,11 @@ export default function Page() {
             backgroundSize: '100% 100%',
           }}
         >
-          <div className="absolute right-1 top-4 flex items-center gap-1">
+          <div className="absolute right-4 top-3 flex items-center gap-1">
             <SettingsButton onClick={() => console.log('Settings clicked')} />
             <BackButton onClick={() => console.log('Back button')} />
           </div>
-          <h3 className="text-center pt-4">Профиль</h3>
+          <h3 className="text-center pt-1">Профиль</h3>
 
           <div className="flex items-center gap-[2%] mt-[12%]">
             <button
@@ -63,13 +63,13 @@ export default function Page() {
               Connect Telegram Wallet
             </button>
             <button
-              className="button w-full aspect-[1055/140]"
+              className="button w-full aspect-[1055/140] mt-3"
               style={createBackgroundStyle(BG_IMAGES.PROFILE_REF_SYSTEM_BG)}
             >
               Referral Program
             </button>
             <div
-              className="w-full flex flex-col justify-between p-[5%]"
+              className="w-full flex flex-col justify-between p-[5%] mt-3"
               style={{
                 ...createBackgroundStyle(BG_IMAGES.PROFILE_INVITE_PLATE),
                 backgroundSize: '100% 100%',

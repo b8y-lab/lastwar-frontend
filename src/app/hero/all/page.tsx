@@ -46,12 +46,12 @@ export default function Page() {
       }}
     >
       <div
-        className={`${CONTAINER_CLASS} aspect-[450/770] mt-[40px]`}
+        className={`${CONTAINER_CLASS} aspect-[531/907] mt-[8%]`}
         style={createBackgroundStyle(BG_IMAGES.HERO_BG)}
       >
         <TitleHeader title="Герои" />
 
-        <div className="flex gap-[5px] items-center justify-center flex-wrap p-[10px] pt-[50px] pb-[50px]">
+        <div className="flex gap-[1.5%] items-center justify-center flex-wrap px-[2.5%] pt-[8%] pb-[8%]">
           {allSlots.map((slot) => (
             <HeroLink
               key={slot.id}

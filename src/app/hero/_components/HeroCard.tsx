@@ -30,25 +30,27 @@ export default function HeroCard({
   const isCard = variant === 'card';
 
   // Размеры в зависимости от варианта
+  // Link: 30% ширины родителя, aspect по SVG (335×525)
+  // Card: на всю ширину, aspect по SVG
   const containerClass = isCard
-    ? 'flex flex-col items-center justify-center w-full h-80'
-    : 'flex flex-col items-center justify-center relative w-[120px] aspect-[130/202]';
+    ? 'flex flex-col items-center justify-center w-full aspect-[335/525]'
+    : 'flex flex-col items-center justify-center relative w-[30%] aspect-[335/525]';
 
   const containerFullClass = isCard
-    ? 'flex flex-col items-center justify-start relative w-full h-80'
-    : 'flex flex-col items-center justify-start relative w-[120px] aspect-[130/202]';
+    ? 'flex flex-col items-center justify-start relative w-full aspect-[335/525]'
+    : 'flex flex-col items-center justify-start relative w-[30%] aspect-[335/525]';
 
   const imageClass = isCard
-    ? 'mt-15 w-[80%] aspect-[100/120] mx-auto'
-    : 'mt-6 w-[100px] aspect-[100/120] mx-auto';
+    ? 'mt-[10%] w-[80%] aspect-[100/120] mx-auto'
+    : 'mt-[10%] w-[83%] aspect-[100/120] mx-auto';
 
   const barClass = isCard
-    ? 'absolute bottom-[6px] left-[6px] right-[6px] aspect-[212/90]'
-    : 'absolute bottom-[6px] left-[6px] w-[105px] aspect-[212/90]';
+    ? 'absolute bottom-[3%] left-[3%] right-[3%] aspect-[449/192]'
+    : 'absolute bottom-[3%] left-[5%] w-[87%] aspect-[449/192]';
 
   const starPosition = isCard
-    ? 'absolute bottom-[51px] left-[23%] flex gap-0.5 text-sm z-10'
-    : 'absolute bottom-[28px] left-[22px] flex gap-0.5 text-sm z-10';
+    ? 'absolute bottom-[15%] left-[23%] flex gap-0.5 text-sm z-10'
+    : 'absolute bottom-[15%] left-[18%] flex gap-0.5 text-sm z-10';
 
   const starSize = isCard ? 16 : 11;
 
@@ -89,22 +91,21 @@ export default function HeroCard({
   }
 
   return (
-    <Link href={url + '?hid=' + id + '&mid=' + mid}>
+    <Link
+      href={url + '?hid=' + id + '&mid=' + mid}
+      className={containerFullClass}
+      style={createBackgroundStyle(BG_IMAGES.HERO_CARD_BG)}
+    >
       <div
-        className={containerFullClass}
-        style={createBackgroundStyle(BG_IMAGES.HERO_CARD_BG)}
-      >
-        <div
-          className={imageClass}
-          style={createBackgroundStyle(heroImage)}
-        ></div>
+        className={imageClass}
+        style={createBackgroundStyle(heroImage)}
+      ></div>
 
-        <div
-          className={barClass}
-          style={createBackgroundStyle(BG_IMAGES.HERO_CARD_BAR)}
-        >
-          <div className={starPosition}>{renderStars()}</div>
-        </div>
+      <div
+        className={barClass}
+        style={createBackgroundStyle(BG_IMAGES.HERO_CARD_BAR)}
+      >
+        <div className={starPosition}>{renderStars()}</div>
       </div>
     </Link>
   );

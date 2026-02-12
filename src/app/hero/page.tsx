@@ -1,10 +1,5 @@
-import FooterNav from '@/components/FooterNav.tsx';
-import UserHeader from '@/app/profile/_components/UserHeader.tsx';
-import TitleHeader from '@/components/TitleHeader.tsx';
 import Link from 'next/link';
-import SkillModal from '@/app/hero/_components/SkillModal.tsx';
 import CarParamModal from '@/app/hero/_components/CarParamModal.tsx';
-import ParamsModal from '@/app/hero/_components/ParamsModal.tsx';
 import HeroCard from '@/app/hero/_components/HeroCard.tsx';
 import { CONTAINER_CLASS } from '@/constants/layout';
 import Image from 'next/image';
@@ -43,17 +38,14 @@ export default async function Page({ searchParams }: IProps) {
           backgroundSize: '175%',
         }}
       >
-        {/* <UserHeader /> */}
-        {/* <TitleHeader title={'Hero #' + hid} /> */}
-
         <div
-          className="w-full max-w-[255px] h-[50px] flex items-center justify-center"
+          className="w-[55%] aspect-[706/138] flex items-center justify-center"
           style={createBackgroundStyle(BG_IMAGES.HERO_NAMEBAR)}
         >
           {hero.name || 'Hero #' + hid}
         </div>
 
-        <div className="w-full flex flex-row items-start justify-between gap-3 px-4 pt-5">
+        <div className="w-full flex flex-row items-start justify-between gap-[2%] px-[4%] pt-[4%]">
           <div className="flex-1">
             <HeroCard
               id={hero.id}
@@ -65,12 +57,12 @@ export default async function Page({ searchParams }: IProps) {
           </div>
 
           <div
-            className="flex-1 h-84 items-center flex flex-col p-3"
+            className="flex-1 aspect-[668/1016] items-center flex flex-col p-[4%]"
             style={createBackgroundStyle(BG_IMAGES.HERO_EQUIP_BG)}
           >
             <Link
-              href="/hero/cars"
-              className="button w-[95%] h-17 items-end flex flex-col justify-around mt-10"
+              href="/hero/all"
+              className="button w-[95%] aspect-[544/210] items-end flex flex-col justify-around mt-[15%]"
               style={createBackgroundStyle(BG_IMAGES.HERO_CART_BTN)}
             >
               <span className="p-3 pr-5">
@@ -93,9 +85,9 @@ export default async function Page({ searchParams }: IProps) {
           </div>
         </div>
 
-        <div className="w-full flex flex-row items-start justify-center gap-2 mt-3">
+        <div className="w-full flex flex-row items-start justify-center gap-[1%] mt-3">
           <div
-            className="w-[200px] h-[200px] flex flex-col items-center gap-2 justify-center"
+            className="w-[45%] aspect-[526/540] flex flex-col items-center gap-2 justify-center"
             style={createBackgroundStyle(BG_IMAGES.HERO_UPRANK_BG)}
           >
             <div className="w-full flex flex-col gap-1">
@@ -119,7 +111,7 @@ export default async function Page({ searchParams }: IProps) {
               </div>
             </div>
             <button
-              className="w-[135px] h-[53px] cursor-pointer"
+              className="w-[67%] aspect-[344/136] cursor-pointer"
               style={createBackgroundStyle(BG_IMAGES.HERO_UPRANK_BTN)}
             >
               Повысить ур/ранг
@@ -127,27 +119,27 @@ export default async function Page({ searchParams }: IProps) {
           </div>
 
           <div
-            className="w-[240px] h-[290px]"
+            className="w-[54%] aspect-[668/804]"
             style={createBackgroundStyle(BG_IMAGES.HERO_SKILL_BG)}
           >
-            <h3 className="text-center pt-5">Умение</h3>
-            <p className="text-center pt-10">Описание умения</p>
+            <h3 className="text-center pt-[6%]">Умение</h3>
+            <p className="text-center pt-[12%]">Описание умения</p>
           </div>
         </div>
 
         <div
-          className="h-[180px] w-full max-w-[445px] -mt-20 relative"
+          className="w-full aspect-[1228/512] -mt-20 relative"
           style={createBackgroundStyle(BG_IMAGES.HERO_PARAMS_BG)}
         >
           <button
-            className="h-[60px] w-[70px] absolute right-3 bottom-3 cursor-pointer"
+            className="w-[16%] aspect-[194/170] absolute right-[2%] bottom-[5%] cursor-pointer"
             style={createBackgroundStyle(BG_IMAGES.HERO_EXPAND_BTN)}
           ></button>
-          <h3 className="text-center absolute bottom-8 left-1/3">
+          <h3 className="text-center absolute bottom-[15%] left-1/3">
             Параметры героя
           </h3>
 
-          <div className="flex mt-7 ml-5">
+          <div className="flex mt-[10%] ml-[5%]">
             <div className="flex flex-col items-center">
               <div
                 className="flex items-center justify-center w-[50px] h-[50px]"
