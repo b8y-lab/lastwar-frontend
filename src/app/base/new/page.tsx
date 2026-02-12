@@ -3,7 +3,7 @@ import TitleHeader from '@/components/TitleHeader.tsx';
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center h-screen w-full">
+    <div className="flex flex-col items-center min-h-dvh w-full">
       <UserHeader />
       <TitleHeader title="New Facility" />
 

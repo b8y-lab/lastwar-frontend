@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { ReactNode } from 'react';
 
-//import { inter } from "@/app/ui/fonts";
 import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
 import LoadingProvider from '@/components/LoadingProvider';
@@ -17,6 +16,9 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

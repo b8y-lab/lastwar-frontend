@@ -6,8 +6,8 @@ export default function HeroAllLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col items-center justify-start h-screen w-full bg-black">
-      <div className={`${CONTAINER_CLASS} w-full`}>{children}</div>
+    <div className="flex flex-col items-center justify-start min-h-dvh w-full bg-black">
+      <div className={`${CONTAINER_CLASS}`}>{children}</div>
     </div>
   );
 }

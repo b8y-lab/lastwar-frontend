@@ -2,6 +2,7 @@
 
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import Image from 'next/image';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 interface ErrorModalProps {
   isOpen: boolean;
@@ -18,13 +19,8 @@ export default function ErrorModal({
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
       <div className="fixed inset-0 flex items-center justify-center">
         <DialogPanel
-          className="w-[310px] h-[310px] relative p-3.5 flex-col items-center justify-center"
-          style={{
-            backgroundImage: 'url("/assets/errors/error-bg.svg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
+          className="w-full max-w-[310px] h-[310px] max-h-[90dvh] overflow-y-auto relative p-3.5 flex-col items-center justify-center"
+          style={createBackgroundStyle(BG_IMAGES.ERROR_BG)}
         >
           <button
             onClick={onClose}

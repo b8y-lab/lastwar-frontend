@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import type { ReelSymbol } from '@/utils/slot/symbols';
 
 const SlotReel = dynamic(
   () => import('@/app/slot-machine/_components/SlotReel'),
@@ -6,7 +7,7 @@ const SlotReel = dynamic(
 );
 
 interface SlotReelsProps {
-  reels: string[];
+  reels: ReelSymbol[];
   rolling: boolean;
 }
 

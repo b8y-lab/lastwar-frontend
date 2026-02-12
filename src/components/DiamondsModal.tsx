@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import Image from 'next/image';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 interface DiamondsModalProps {
   isOpen: boolean;
@@ -33,20 +34,15 @@ export default function DiamondsModal({
 
   const isInsufficient = type === 'insufficient';
   const backgroundImage = isInsufficient
-    ? '/assets/diamonds/insuff-diamonds-bg.svg'
-    : '/assets/diamonds/use-diamonds-bg.svg';
+    ? BG_IMAGES.DIAMONDS_INSUFF_BG
+    : BG_IMAGES.DIAMONDS_USE_BG;
 
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
       <div className="fixed inset-0 flex items-center justify-center">
         <DialogPanel
-          className="w-[310px] h-[410px] relative p-3.5 flex flex-col"
-          style={{
-            backgroundImage: `url("${backgroundImage}")`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
+          className="w-full max-w-[310px] h-[410px] max-h-[90dvh] overflow-y-auto relative p-3.5 flex flex-col"
+          style={createBackgroundStyle(backgroundImage)}
         >
           <button
             onClick={onClose}
@@ -83,22 +79,16 @@ export default function DiamondsModal({
               <div
                 className="flex items-center justify-center"
                 style={{
+                  ...createBackgroundStyle(BG_IMAGES.DIAMONDS_GOLD_FRAME),
                   width: 130,
                   height: 130,
-                  backgroundImage: `url("/assets/diamonds/gold-frame.svg")`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
                 }}
               >
                 <div
                   style={{
+                    ...createBackgroundStyle(BG_IMAGES.DIAMONDS_DIAMOND),
                     width: 85,
                     height: 80,
-                    backgroundImage: `url("/assets/diamonds/diamond.svg")`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
                   }}
                 ></div>
               </div>
@@ -108,12 +98,9 @@ export default function DiamondsModal({
               onClick={onContinue}
               className="cursor-pointer"
               style={{
+                ...createBackgroundStyle(BG_IMAGES.DIAMONDS_NEXT_BTN),
                 width: 155,
                 height: 60,
-                backgroundImage: 'url("/assets/diamonds/next-btn.svg")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
               }}
             >
               Продолжить

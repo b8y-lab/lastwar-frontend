@@ -4,7 +4,7 @@ import TitleHeader from '@/components/TitleHeader.tsx';
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-start h-screen w-full">
+    <div className="flex flex-col items-center justify-start min-h-dvh w-full">
       <UserHeader />
       <TitleHeader title="Parameters" />
 

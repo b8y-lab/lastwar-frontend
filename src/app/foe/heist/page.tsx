@@ -1,16 +1,13 @@
 import FoeHeader from '@/app/foe/_components/FoeHeader.tsx';
 import HeistRewardModal from '@/app/reward/_components/HeistRewardModal.tsx';
 import { CONTAINER_CLASS } from '@/constants/layout';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 export default function Page() {
   return (
     <div
-      className={`flex flex-col items-center justify-start ${CONTAINER_CLASS} h-screen mx-auto w-full px-4`}
-      style={{
-        backgroundImage: 'url("/assets/heist/heist-bg.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      className={`flex flex-col items-center justify-start ${CONTAINER_CLASS} min-h-dvh px-4`}
+      style={createBackgroundStyle(BG_IMAGES.HEIST_BG)}
     >
       <FoeHeader />
 

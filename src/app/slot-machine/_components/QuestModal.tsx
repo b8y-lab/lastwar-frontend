@@ -1,7 +1,10 @@
 'use client';
 
 import { ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
 import { MODAL_CLASS } from '@/constants/layout';
+import { ROUTES } from '@/constants/routes';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 interface QuestModalProps {
   children: ReactNode;
@@ -9,11 +12,13 @@ interface QuestModalProps {
 }
 
 export const QuestModal = ({ children, onClose }: QuestModalProps) => {
+  const router = useRouter();
+
   const handleClose = () => {
     if (onClose) {
       onClose();
     } else {
-      window.location.href = '/slot-machine';
+      router.push(ROUTES.SLOT_MACHINE);
     }
   };
 
@@ -23,13 +28,9 @@ export const QuestModal = ({ children, onClose }: QuestModalProps) => {
       onClick={handleClose}
     >
       <div
-        className={`relative ${MODAL_CLASS} max-w-full h-[840px] overflow-auto`}
+        className={`relative ${MODAL_CLASS} max-h-[90dvh] overflow-auto`}
         onClick={(e) => e.stopPropagation()}
-        style={{
-          backgroundImage: 'url("/assets/quests/window.svg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        style={createBackgroundStyle(BG_IMAGES.QUEST_WINDOW)}
       >
         <button
           onClick={handleClose}

@@ -5,7 +5,7 @@ import FooterNav from '@/components/FooterNav.tsx';
 
 export default function QuestLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex flex-col items-center justify-start h-screen w-full">
+    <div className="flex flex-col items-center justify-start min-h-dvh w-full">
       <UserHeader />
       <ShopHeader />
 

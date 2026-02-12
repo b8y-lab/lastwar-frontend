@@ -3,92 +3,17 @@
 import { animate } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
+import {
+  REEL_SYMBOLS,
+  SYMBOL_IMAGE_MAP,
+  type ReelSymbol,
+} from '@/utils/slot/symbols';
 
-const symbolToImage: Record<string, string> = {
-  '🪙': '/assets/slot/icons/coin.png',
-  '🎁': '/assets/slot/icons/gift.png',
-  '⚔️': '/assets/slot/icons/attack.png',
-  '💎': '/assets/slot/icons/diamond.png',
-  '🛡': '/assets/slot/icons/defense.png',
-  '🔑': '/assets/slot/icons/key.png',
-  '🎫': '/assets/slot/icons/ticket.png',
-  '⚡️': '/assets/slot/icons/energy.png',
-};
-
-const REEL_STRIP = [
-  '🪙',
-  '🎁',
-  '⚔️',
-  '💎',
-  '🛡',
-  '🔑',
-  '🎫',
-  '⚡️',
-  '🪙',
-  '🎁',
-  '⚔️',
-  '💎',
-  '🛡',
-  '🔑',
-  '🎫',
-  '⚡️',
-  '🪙',
-  '🎁',
-  '⚔️',
-  '💎',
-  '🛡',
-  '🔑',
-  '🎫',
-  '⚡️',
-  '🪙',
-  '🎁',
-  '⚔️',
-  '💎',
-  '🛡',
-  '🔑',
-  '🎫',
-  '⚡️',
-  '🪙',
-  '🎁',
-  '⚔️',
-  '💎',
-  '🛡',
-  '🔑',
-  '🎫',
-  '⚡️',
-  '🪙',
-  '🎁',
-  '⚔️',
-  '💎',
-  '🛡',
-  '🔑',
-  '🎫',
-  '⚡️',
-  '🪙',
-  '🎁',
-  '⚔️',
-  '💎',
-  '🛡',
-  '🔑',
-  '🎫',
-  '⚡️',
-  '🪙',
-  '🎁',
-  '⚔️',
-  '💎',
-  '🛡',
-  '🔑',
-  '🎫',
-  '⚡️',
-  '🪙',
-  '🎁',
-  '⚔️',
-  '💎',
-  '🛡',
-  '🔑',
-  '🎫',
-  '⚡️',
-];
+const REEL_REPEAT_COUNT = 9;
+const REEL_STRIP: ReelSymbol[] = Array.from(
+  { length: REEL_REPEAT_COUNT },
+  () => [...REEL_SYMBOLS]
+).flat();
 
 const SYMBOL_HEIGHT = 170;
 const STRIP_HEIGHT = REEL_STRIP.length * SYMBOL_HEIGHT;
@@ -97,7 +22,7 @@ export default function SlotReel({
   symbol,
   spinning,
 }: {
-  symbol: string;
+  symbol: ReelSymbol;
   spinning: boolean;
 }) {
   const reelRef = useRef<HTMLDivElement>(null);
@@ -143,15 +68,19 @@ export default function SlotReel({
       duration: 0.6,
       ease: 'easeOut',
       onUpdate: (v) => {
-        reelRef.current!.style.transform = `translateY(${v}px)`;
+        if (reelRef.current) {
+          reelRef.current.style.transform = `translateY(${v}px)`;
+        }
       },
       onComplete: () => {
         animate(target - 40, target, {
           duration: 0.25,
           ease: [0.22, 1.2, 0.36, 1],
           onUpdate: (v) => {
-            reelRef.current!.style.transform = `translateY(${v}px)`;
-            reelRef.current!.style.filter = 'blur(0px)';
+            if (reelRef.current) {
+              reelRef.current.style.transform = `translateY(${v}px)`;
+              reelRef.current.style.filter = 'blur(0px)';
+            }
           },
           onComplete: () => {
             position.current = target;
@@ -171,7 +100,7 @@ export default function SlotReel({
             className="flex items-center justify-center"
             style={{ height: SYMBOL_HEIGHT }}
           >
-            <Image src={symbolToImage[sym]} alt={sym} width={48} height={48} />
+            <Image src={SYMBOL_IMAGE_MAP[sym]} alt={sym} width={48} height={48} />
           </div>
         ))}
       </div>

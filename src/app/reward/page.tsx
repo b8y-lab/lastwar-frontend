@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 export default function Page() {
   return (
-    <div className="flex flex-col items-center justify-start h-screen w-full">
+    <div className="flex flex-col items-center justify-start min-h-dvh w-full">
       <div className="w-full flex flex-row items-center justify-center pt-10 pb-5">
         <button className="button w-60 h-60 rounded-full inline-block">
           <Image

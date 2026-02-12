@@ -7,6 +7,7 @@ import HeroLink from '@/app/hero/_components/HeroLink.tsx';
 import { CONTAINER_CLASS } from '@/constants/layout';
 import DiamondsModal from '@/components/DiamondsModal';
 import { HEROES_DATA } from '@/data/heroes';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 interface HeroSlot {
   id: string;
@@ -38,21 +39,15 @@ for (let i = mockHeroes.length + 1; i <= TOTAL_SLOTS; i++) {
 export default function Page() {
   return (
     <div
-      className="w-full h-screen overflow-hidden"
+      className="w-full min-h-dvh overflow-hidden"
       style={{
-        backgroundImage: 'url("/assets/heroes/parchment-bg.svg")',
+        ...createBackgroundStyle(BG_IMAGES.HERO_PARCHMENT_BG),
         backgroundSize: '160%',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
       }}
     >
       <div
-        className={`w-full ${CONTAINER_CLASS} aspect-[450/770] mt-[40px]`}
-        style={{
-          backgroundImage: 'url("/assets/heroes/bg.svg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        className={`${CONTAINER_CLASS} aspect-[450/770] mt-[40px]`}
+        style={createBackgroundStyle(BG_IMAGES.HERO_BG)}
       >
         <TitleHeader title="Герои" />
 

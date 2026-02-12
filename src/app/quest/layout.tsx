@@ -3,6 +3,7 @@ import TitleHeader from '@/components/TitleHeader.tsx';
 import QuestHeader from '@/app/quest/_components/QuestHeader.tsx';
 import { headers } from 'next/headers';
 import { CONTAINER_CLASS } from '@/constants/layout';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 export default async function QuestLayout({
   children,
@@ -14,24 +15,16 @@ export default async function QuestLayout({
 
   return (
     <div
-      className={`flex flex-col items-center justify-start h-screen ${CONTAINER_CLASS} mx-auto w-full px-4`}
-      style={{
-        backgroundImage: 'url("/assets/quests/quest-bg.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      className={`flex flex-col items-center justify-start min-h-dvh ${CONTAINER_CLASS} px-4`}
+      style={createBackgroundStyle(BG_IMAGES.QUEST_BG)}
     >
       <TitleHeader title="Weekly Quests" back={referer} />
       <QuestHeader />
 
       {/* TODO: Переделать фон */}
       <div
-        className={`h-screen ${CONTAINER_CLASS} w-full`}
-        style={{
-          backgroundImage: 'url("/assets/quests/quest-list-bg.png")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        className={`flex-1 ${CONTAINER_CLASS}`}
+        style={createBackgroundStyle(BG_IMAGES.QUEST_LIST_BG)}
       >
         {children}
       </div>

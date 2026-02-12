@@ -1,25 +1,38 @@
-export const gameWeights = {
-  resource: 55, // probability for resource slots
-  game: 45, // probability for mini-game slots
+export const GAME_WEIGHTS = {
+  resource: 55,
+  game: 45,
+} as const;
+
+export const REEL_SYMBOLS = ['🪙', '⚡️', '🎁', '💎', '⚔️', '🛡', '🔑', '🎫'] as const;
+
+export type ReelSymbol = (typeof REEL_SYMBOLS)[number];
+
+export const SYMBOL_IMAGE_MAP: Record<ReelSymbol, string> = {
+  '🪙': '/assets/slot/icons/coin.png',
+  '🎁': '/assets/slot/icons/gift.png',
+  '⚔️': '/assets/slot/icons/attack.png',
+  '💎': '/assets/slot/icons/diamond.png',
+  '🛡': '/assets/slot/icons/defense.png',
+  '🔑': '/assets/slot/icons/key.png',
+  '🎫': '/assets/slot/icons/ticket.png',
+  '⚡️': '/assets/slot/icons/energy.png',
 };
 
-export const reelSymbols = ['🪙', '⚡️', '🎁', '💎', '⚔️', '🛡', '🔑', '🎫'];
-
-export const gameSymbols = [
+const GAME_SYMBOLS = [
   { char: 'no', weight: 50 },
   { char: '⚔️', weight: 10 },
   { char: '🛡', weight: 20 },
   { char: '🔑', weight: 15 },
   { char: '🎫', weight: 5 },
-];
+] as const;
 
-export const resourceSymbols = [
+const RESOURCE_SYMBOLS = [
   { char: 'no', weight: 62 },
   { char: '🪙', weight: 28 },
   { char: '⚡️', weight: 5 },
   { char: '🎁', weight: 4 },
   { char: '💎', weight: 1 },
-];
+] as const;
 
 export type RewardResult = {
   type: 'reward';
@@ -28,65 +41,48 @@ export type RewardResult = {
 
 export type SpinResult =
   | RewardResult
-  | {
-      type: 'reward';
-      rewardType: 'coin' | 'box' | 'energy' | 'diamond' | 'ticket' | 'defense';
-    }
   | { type: 'fight' }
   | { type: 'heist' }
   | { type: 'none' };
 
-export function getGameArray(): string[] {
-  // const totalWeight = gameWeights.resource + gameWeights.game;
-  // const gameWin = Math.random() * totalWeight < gameWeights.game;
-  const gameWin = Math.random() * 100 < gameWeights.game;
+function getWeightedRandom(
+  symbols: ReadonlyArray<{ char: string; weight: number }>
+): string {
+  let random = Math.random() * 100;
 
-  return gameWin ? getWeightedGameArray() : getWeightedResourceArray();
+  for (const s of symbols) {
+    if (random < s.weight) return s.char;
+    random -= s.weight;
+  }
+
+  return symbols[0].char;
 }
 
-export function getReelsRandomArray(): string[] {
+function getWeightedTriple(
+  symbols: ReadonlyArray<{ char: string; weight: number }>
+): ReelSymbol[] {
+  const s = getWeightedRandom(symbols);
+  return s === 'no' ? getReelsRandomArray() : [s as ReelSymbol, s as ReelSymbol, s as ReelSymbol];
+}
+
+export function getGameArray(): ReelSymbol[] {
+  const isGameWin = Math.random() * 100 < GAME_WEIGHTS.game;
+  return isGameWin
+    ? getWeightedTriple(GAME_SYMBOLS)
+    : getWeightedTriple(RESOURCE_SYMBOLS);
+}
+
+export function getReelsRandomArray(): ReelSymbol[] {
   return [
-    getReelRandomSymbol() as string,
-    getReelRandomSymbol() as string,
-    getReelRandomSymbol() as string,
+    getReelRandomSymbol(),
+    getReelRandomSymbol(),
+    getReelRandomSymbol(),
   ];
 }
 
-export function getWeightedGameArray(): string[] {
-  const s = getWeightedRandomGameSymbol() as string;
-  return s === 'no' ? getReelsRandomArray() : [s, s, s];
-}
-
-export function getWeightedResourceArray(): string[] {
-  const s = getWeightedRandomResourceSymbol() as string;
-  return s === 'no' ? getReelsRandomArray() : [s, s, s];
-}
-
-export function getReelRandomSymbol(): string {
-  let random = Math.floor(Math.random() * reelSymbols.length);
-  return reelSymbols[random];
-}
-
-export function getWeightedRandomGameSymbol() {
-  // const totalWeight = gameSymbols.reduce((sum, s) => sum + s.weight, 0);
-  // let random = Math.random() * totalWeight;
-  let random = Math.random() * 100;
-
-  for (const s of gameSymbols) {
-    if (random < s.weight) return s.char;
-    random -= s.weight;
-  }
-}
-
-export function getWeightedRandomResourceSymbol() {
-  // const totalWeight = resourceSymbols.reduce((sum, s) => sum + s.weight, 0);
-  // let random = Math.random() * totalWeight;
-  let random = Math.random() * 100;
-
-  for (const s of resourceSymbols) {
-    if (random < s.weight) return s.char;
-    random -= s.weight;
-  }
+export function getReelRandomSymbol(): ReelSymbol {
+  const index = Math.floor(Math.random() * REEL_SYMBOLS.length);
+  return REEL_SYMBOLS[index];
 }
 
 export function getResultBySymbols(results: string[]): SpinResult {
@@ -94,33 +90,24 @@ export function getResultBySymbols(results: string[]): SpinResult {
 
   if (isTriple) {
     switch (results[0]) {
-      // NOTE: Reward coin-jackpot
       case '🪙':
         return { type: 'reward', rewardType: 'coin' };
-      // NOTE: Reward energy
       case '⚡️':
         return { type: 'reward', rewardType: 'energy' };
-      // NOTE: Reward box
       case '🎁':
         return { type: 'reward', rewardType: 'box' };
-      // NOTE: Reward diamond
       case '💎':
         return { type: 'reward', rewardType: 'diamond' };
-      // NOTE: Reward ticket
       case '🎫':
         return { type: 'reward', rewardType: 'ticket' };
-      // NOTE: Reward defense
       case '🛡':
         return { type: 'reward', rewardType: 'defense' };
-      // NOTE: Fight
       case '⚔️':
         return { type: 'fight' };
-      // NOTE: Heist
       case '🔑':
         return { type: 'heist' };
     }
   }
 
-  // Small win
   return { type: 'reward', rewardType: 'coin' };
 }

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { createBackgroundStyle, BG_IMAGES } from '@/utils/styles';
 
 export default function QuestHeader() {
   const pathname = usePathname();
@@ -9,13 +10,15 @@ export default function QuestHeader() {
   const cssActive = ' text-[#ffac00!important] border-[#ffac00!important]';
 
   const getClassName = (path: string): string => {
-    return cssName + (path == pathname ? cssActive : '');
+    return cssName + (path === pathname ? cssActive : '');
   };
 
-  const getBackgroundImage = (path: string): string => {
-    return path === pathname
-      ? 'url("/assets/quests/questsnavbtnactive.svg")'
-      : 'url("/assets/quests/questsnavbtn.svg")';
+  const getBackgroundStyle = (path: string) => {
+    const image =
+      path === pathname
+        ? BG_IMAGES.QUEST_NAV_BTN_ACTIVE
+        : BG_IMAGES.QUEST_NAV_BTN;
+    return createBackgroundStyle(image);
   };
 
   return (
@@ -23,11 +26,7 @@ export default function QuestHeader() {
       <Link
         href="/quest/day"
         className={getClassName('/quest/day')}
-        style={{
-          backgroundImage: getBackgroundImage('/quest/day'),
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        style={getBackgroundStyle('/quest/day')}
       >
         Daily
       </Link>
@@ -35,11 +34,7 @@ export default function QuestHeader() {
       <Link
         href="/quest/week"
         className={getClassName('/quest/week')}
-        style={{
-          backgroundImage: getBackgroundImage('/quest/week'),
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        style={getBackgroundStyle('/quest/week')}
       >
         Weekly
       </Link>
@@ -47,11 +42,7 @@ export default function QuestHeader() {
       <Link
         href="/quest/season"
         className={getClassName('/quest/season')}
-        style={{
-          backgroundImage: getBackgroundImage('/quest/season'),
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        style={getBackgroundStyle('/quest/season')}
       >
         Seasonal
       </Link>
@@ -59,11 +50,7 @@ export default function QuestHeader() {
       <Link
         href="/quest/rewards"
         className={getClassName('/quest/rewards')}
-        style={{
-          backgroundImage: getBackgroundImage('/quest/rewards'),
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        style={getBackgroundStyle('/quest/rewards')}
       >
         Rewards
       </Link>
