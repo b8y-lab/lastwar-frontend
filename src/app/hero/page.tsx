@@ -61,7 +61,7 @@ export default async function Page({ searchParams }: IProps) {
             style={createBackgroundStyle(BG_IMAGES.HERO_EQUIP_BG)}
           >
             <Link
-              href="/hero/all"
+              href="/hero"
               className="button w-[95%] aspect-[544/210] items-end flex flex-col justify-around mt-[15%]"
               style={createBackgroundStyle(BG_IMAGES.HERO_CART_BTN)}
             >
